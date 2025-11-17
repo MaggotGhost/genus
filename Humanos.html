@@ -540,9 +540,26 @@
             if (dots[currentSection]) {
                 dots[currentSection].classList.add('active');
             }
+
+            // Guardar el progreso en localStorage
+            localStorage.setItem('timelineProgress', currentSection);
         }
 
         window.addEventListener('scroll', updateNavigation);
+
+        // Restaurar el progreso al cargar la página
+        window.addEventListener('load', () => {
+            const savedProgress = localStorage.getItem('timelineProgress');
+            if (savedProgress !== null) {
+                const sectionIndex = parseInt(savedProgress, 10);
+                window.scrollTo({
+                    left: sectionIndex * window.innerWidth,
+                    behavior: 'auto' // Sin animación para restaurar rápidamente
+                });
+                // Actualizar los puntos de navegación después del scroll
+                setTimeout(updateNavigation, 100);
+            }
+        });
 
         // Navegación con clicks
         dots.forEach((dot, index) => {
