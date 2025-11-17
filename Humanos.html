@@ -256,6 +256,15 @@
             box-shadow: 0 0 20px rgba(255, 161, 73, 0.5);
         }
 
+        .nav-dot.visited {
+            background: rgba(255, 161, 73, 0.6);
+            border: 2px solid var(--accent);
+        }
+
+        .nav-dot.visited.active {
+            background: var(--accent);
+        }
+
         /* Decoración adicional */
         .decorative-line {
             position: absolute;
@@ -531,14 +540,27 @@
         const sections = document.querySelectorAll('.section');
         const dots = document.querySelectorAll('.nav-dot');
 
+        // Cargar secciones visitadas desde localStorage
+        let visitedSections = JSON.parse(localStorage.getItem('visitedSections')) || [];
+
         function updateNavigation() {
             const scrollX = window.scrollX;
             const windowWidth = window.innerWidth;
             const currentSection = Math.round(scrollX / windowWidth);
 
-            dots.forEach(dot => dot.classList.remove('active'));
-            if (dots[currentSection]) {
-                dots[currentSection].classList.add('active');
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active', 'visited');
+                if (index === currentSection) {
+                    dot.classList.add('active');
+                } else if (visitedSections.includes(index)) {
+                    dot.classList.add('visited');
+                }
+            });
+
+            // Marcar la sección actual como visitada si no lo está
+            if (!visitedSections.includes(currentSection)) {
+                visitedSections.push(currentSection);
+                localStorage.setItem('visitedSections', JSON.stringify(visitedSections));
             }
 
             // Guardar el progreso en localStorage
@@ -558,6 +580,9 @@
                 });
                 // Actualizar los puntos de navegación después del scroll
                 setTimeout(updateNavigation, 100);
+            } else {
+                // Si no hay progreso guardado, marcar la primera sección como visitada
+                updateNavigation();
             }
         });
 
