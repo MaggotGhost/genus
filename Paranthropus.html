@@ -44,7 +44,7 @@
             height: 80vh; /* Reducido para evitar scroll vertical */
             margin: 0 auto;
             background: transparent;
-            border-radius: 0;
+            border-radius: 50% / 90% 90% 10% 10%;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -53,17 +53,18 @@
 
         .model-wrapper {
             position: relative;
-            width: 100%;
-            height: 100%;
+            width: 95%; /* Aumentado de 90% a 95% */
+            height: 95%; /* Aumentado de 90% a 95% */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .model-video {
-            width: 100%;
+            width: auto;
             height: 100%;
-            object-fit: contain;
+            max-width: 100%;
+            object-fit: cover;
             border-radius: 50% / 90% 90% 10% 10%;
             box-shadow: none;
         }
@@ -509,28 +510,28 @@
             <div class="journey-step"></div>
             <div class="journey-step"></div>
             <div class="journey-step"></div>
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
             <div class="journey-step active"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
         </div>
         <div class="journey-labels">
             <div class="journey-label">Sahelanthropus</div>
             <div class="journey-label">Ardipithecus</div>
             <div class="journey-label">Australopithecus</div>
             <div class="journey-label">Kenyanthropus</div>
-            <div class="journey-label active">Paranthropus</div>
+            <div class="journey-label">Paranthropus</div>
             <div class="journey-label">Australopithecus africanus</div>
             <div class="journey-label">Paranthropus boisei</div>
             <div class="journey-label">Homo habilis</div>
             <div class="journey-label">Homo erectus</div>
             <div class="journey-label">Homo heidelbergensis</div>
             <div class="journey-label">Homo neanderthalensis</div>
-            <div class="journey-label">Homo sapiens</div>
+            <div class="journey-label active">Homo sapiens</div>
         </div>
     </div>
 
@@ -568,7 +569,7 @@
                 <div class="node hidden" style="top: 28%; left: 45%" data-info="craneo" data-order="1">
                     <div class="info-panel">
                         <h3 class="info-title">Cráneo</h3>
-                        <p class="info-text">Cráneo muy robusto con cresta sagital pronunciada y capacidad craneal de 400-550 cc.</p>
+                        <p class="info-text">Cráneo con capacidad craneal de 1200-1600 cc, globoide y alto.</p>
                         <p class="info-status" id="status-1">Estado: No visitado</p>
                     </div>
                 </div>
@@ -576,7 +577,7 @@
                 <div class="node hidden" style="top: 38%; left: 48%" data-info="cara" data-order="2">
                     <div class="info-panel">
                         <h3 class="info-title">Región Facial</h3>
-                        <p class="info-text">Cara muy prognática con arcos superciliares masivos y dientes enormes.</p>
+                        <p class="info-text">Cara plana con arcos superciliares reducidos y mentón prominente.</p>
                         <p class="info-status" id="status-2">Estado: No visitado</p>
                     </div>
                 </div>
@@ -584,7 +585,7 @@
                 <div class="node hidden" style="top: 45%; left: 47%" data-info="dientes" data-order="3">
                     <div class="info-panel">
                         <h3 class="info-title">Dentición</h3>
-                        <p class="info-text">Molares gigantes adaptados a dieta de vegetales duros y semillas.</p>
+                        <p class="info-text">Dientes pequeños con molares reducidos, dieta omnívora variada.</p>
                         <p class="info-status" id="status-3">Estado: No visitado</p>
                     </div>
                 </div>
@@ -592,7 +593,7 @@
                 <div class="node hidden" style="top: 52%; left: 45%" data-info="foramen" data-order="4">
                     <div class="info-panel">
                         <h3 class="info-title">Foramen Magnum</h3>
-                        <p class="info-text">Posición anterior indicando locomoción bípeda, aunque más robusta.</p>
+                        <p class="info-text">Posición anterior, locomoción bípeda completamente eficiente.</p>
                         <p class="info-status" id="status-4">Estado: No visitado</p>
                     </div>
                 </div>
@@ -600,7 +601,7 @@
                 <div class="node hidden" style="top: 58%; left: 47%" data-info="mandibula" data-order="5">
                     <div class="info-panel">
                         <h3 class="info-title">Mandíbula</h3>
-                        <p class="info-text">Mandíbula masiva con músculos masticatorios poderosos para procesar alimentos duros.</p>
+                        <p class="info-text">Mandíbula gracil con mentón pronunciado, dientes pequeños.</p>
                         <p class="info-status" id="status-5">Estado: No visitado</p>
                     </div>
                 </div>
@@ -622,7 +623,7 @@
         }
 
         // Reset tour progress on page load for fresh start
-        localStorage.removeItem('paranthropus-tour');
+        localStorage.removeItem('homo-sapiens-tour');
         let visitedNodes = [];
         let currentStep = 1;
 
@@ -732,7 +733,7 @@
                         node.classList.add('visited');
                         document.getElementById(`status-${order}`).textContent = 'Estado: Visitado';
                         currentStep++;
-                        localStorage.setItem('paranthropus-tour', JSON.stringify(visitedNodes));
+                        localStorage.setItem('homo-sapiens-tour', JSON.stringify(visitedNodes));
                         updateProgress();
                         showNotification(`¡Excelente! Has explorado el ${node.dataset.info}.`, 'success');
                     } else {
