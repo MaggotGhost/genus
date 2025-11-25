@@ -131,16 +131,18 @@
         /* Info panel */
         .info-panel {
             position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            border-radius: 10px;
-            max-width: 300px;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(14px);
+            padding: 1.75rem 2.5rem;
+            border-radius: 14px;
+            /* ancho adaptativo: hasta 1100px, o 90% del viewport */
+            width: min(90vw, 1100px);
+            min-width: 420px;
             visibility: hidden;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             border: 1px solid var(--accent);
-            z-index: 20;
+            z-index: 1001;
         }
 
         .info-panel.visible {
@@ -150,14 +152,25 @@
 
         .info-title {
             color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            margin-bottom: 0.6rem;
         }
 
         .info-text {
-            font-size: 0.95rem;
-            line-height: 1.4;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.98);
+        }
+
+        /* Ajustes responsivos para paneles más grandes */
+        @media (max-width: 720px) {
+            .info-panel {
+                width: 96vw;
+                padding: 1rem 0.9rem;
+                min-width: unset;
+            }
+            .info-title { font-size: 1.15rem; }
+            .info-text { font-size: 0.98rem; line-height: 1.45; }
         }
 
         /* Animaciones */
@@ -568,42 +581,75 @@
                 </video>
 
                 <!-- Nodos interactivos -->
-                <div class="node hidden" style="top: 28%; left: 45%" data-info="craneo" data-order="1">
+                <div class="node hidden" style="top: 23%; left: 52%" data-info="craneo" data-order="1">
                     <div class="info-panel">
                         <h3 class="info-title">Cráneo</h3>
-                        <p class="info-text">Capacidad craneal pequeña, similar a la de los chimpancés. Presenta una mezcla única de características primitivas y derivadas.</p>
+                        <p class="info-text">
+                        <strong>Especimen principal:</strong> TM 266-01-060-1 ("Toumaï")<br>
+                        <strong>Capacidad craneal:</strong> ~320-380 cm³ (similar a chimpancés)<br>
+                        <strong>Características:</strong> Toro supraorbital marcado para músculos faciales y de masticación.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://www.si.edu/object/3d/sahelanthropus-tchadensis-cranium%3A9730a62f-a649-44fb-8494-aa7c9b6eb1f8" target="_blank">Modelo 3D Smithsonian</a><br>
+                        • <a href="https://talkorigins.org/faqs/homs/toumai.html" target="_blank">TalkOrigins</a><br>
+                        • <a href="https://www.charlesjvellaphd.com/Olli%20Human%20Evolution/Class%202a%20Early%20Hominins%202018%20by%20Charles%20J%20Vella%2C%20PhD.pdf" target="_blank">Clase Charles J. Vella</a>
+                        </p>
                         <p class="info-status" id="status-1">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 38%; left: 48%" data-info="cara" data-order="2">
+                <div class="node hidden" style="top: 28%; left: 49%" data-info="cara" data-order="2">
                     <div class="info-panel">
                         <h3 class="info-title">Región Facial</h3>
-                        <p class="info-text">Cara relativamente plana y caninos pequeños, características más similares a homínidos posteriores que a simios.</p>
+                        <p class="info-text">
+                        <strong>Características:</strong> El rostro es relativamente plano (“orthognathic”), no muy proyectado hacia adelante como en algunos simios. Presenta arcos supraorbitales muy prominentes, lo que le da una frente muy baja. En la reconstrucción facial se ve una combinación de rasgos primitivos y algunos más “derivados” (simiescos + algo humanos).<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://milnepublishing.geneseo.edu/" target="_blank">Milne Publishing</a><br>
+                        • <a href="https://www.si.edu/" target="_blank">Smithsonian Institution</a><br>
+                        • <a href="https://www.mclibre.org/" target="_blank">McLibre</a><br>
+                        • <a href="https://www.columbia.edu/" target="_blank">Columbia University</a>
+                        </p>
                         <p class="info-status" id="status-2">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 45%; left: 47%" data-info="dientes" data-order="3">
+                <div class="node hidden" style="top: 33%; left: 53%" data-info="dientes" data-order="3">
                     <div class="info-panel">
-                        <h3 class="info-title">Dentición</h3>
-                        <p class="info-text">Dientes más pequeños que los de los simios, sugiriendo una dieta diferente y posiblemente más variada.</p>
+                        <h3 class="info-title">Dentición y Mandíbula</h3>
+                        <p class="info-text">
+                        <strong>Características:</strong> Los caninos son relativamente pequeños en comparación con los simios, y su punta está desgastada de manera similar a la de los humanos. Eso sugiere que no tenía el complejo de afilado de caninos (“honing complex”) como muchos simios. El esmalte dental es más grueso que el de algunos primates antiguos, lo que sugiere cambios en la dieta. Se han encontrado fragmentos de mandíbula inferior (mandíbulas) y dientes aislados junto con el cráneo. No parece haber mucho espacio entre los dientes (dentición relativamente compacta).<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://www.smithsonianmag.com/" target="_blank">Smithsonian Magazine</a><br>
+                        • <a href="https://www.edx.org/" target="_blank">edX</a><br>
+                        • <a href="https://www.columbia.edu/" target="_blank">Columbia University</a><br>
+                        • <a href="https://www.mclibre.org/" target="_blank">McLibre</a>
+                        </p>
                         <p class="info-status" id="status-3">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 52%; left: 45%" data-info="foramen" data-order="4">
+                <div class="node hidden" style="top: 35%; left: 45%" data-info="foramen" data-order="4">
                     <div class="info-panel">
-                        <h3 class="info-title">Foramen Magnum</h3>
-                        <p class="info-text">Posición del foramen magnum sugiere postura bípeda, aunque este aspecto es debatido.</p>
+                        <h3 class="info-title">Postura</h3>
+                        <p class="info-text">
+                        <strong>Características:</strong> El foramen magnum (orificio por donde pasa la médula espinal hacia la columna) está relativamente adelantado en la base del cráneo, lo que es un indicio de postura erguida y posibilidad de bipedalismo. Sin embargo, esto es controversial: algunos científicos sugieren que podría no haber sido un bípedo habitual, debido a evidencias de fuerte musculatura en la nuca (cresta occipital) que podría indicar otro tipo de locomoción. Según algunos hallazgos poscraneales (fémur y cúbitos / ulnae) atribuidos a S. tchadensis, habría una mezcla de locomoción: bipedalismo "habitual" + capacidad para moverse en los árboles ("clambering" arbóreo). Otros estudios también han sugerido que podría tener un "bipedalismo parcial" o "transicional", no exactamente como el humano moderno.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://www.smithsonianmag.com/" target="_blank">Smithsonian Magazine</a><br>
+                        • <a href="https://ojs.lib.uwo.ca/" target="_blank">ojs.lib.uwo.ca</a><br>
+                        • <a href="https://www.worldofpaleoanthropology.com/" target="_blank">World of Paleoanthropology</a><br>
+                        • <a href="https://milnepublishing.geneseo.edu/" target="_blank">Milne Publishing</a>
+                        </p>
                         <p class="info-status" id="status-4">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 58%; left: 47%" data-info="mandibula" data-order="5">
+                <div class="node hidden" style="top: 54%; left: 55%" data-info="manos" data-order="5">
                     <div class="info-panel">
-                        <h3 class="info-title">Mandíbula</h3>
-                        <p class="info-text">Mandíbula robusta con características intermedias entre simios y homínidos posteriores.</p>
+                        <h3 class="info-title">Manos</h3>
+                        <p class="info-text">
+                        <strong>Características:</strong> Aquí la evidencia es más limitada. No hay fósiles de manos completas o muy bien preservadas que se atribuyan con certeza a Sahelanthropus tchadensis. Muchos estudios hablan sobre "postcraneales fragmentarios" más que de manos completas. Debido a esta falta de datos, no se puede decir con seguridad cómo eran las manos (longitud de dedos, capacidad de agarre, etc.) en comparación con otros homínidos antiguos.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://www.smithsonianmag.com/" target="_blank">Smithsonian Magazine</a>
+                        </p>
                         <p class="info-status" id="status-5">Estado: No visitado</p>
                     </div>
                 </div>
@@ -674,6 +720,96 @@
             }
         }
 
+        // Funciones auxiliares para manejo de paneles
+        function closeAllPanels() {
+            document.querySelectorAll('.info-panel.visible').forEach(panel => {
+                panel.classList.remove('visible');
+            });
+            document.querySelectorAll('.node').forEach(n => n.style.visibility = 'visible');
+            document.querySelectorAll('.lm-marker').forEach(m => m.style.visibility = 'visible');
+            // Restaurar posición al DOM original dentro del wrapper si fue movido
+            document.querySelectorAll('.info-panel').forEach(panel => {
+                const originalParent = panel.closest('.node') || document.querySelector('.model-wrapper');
+                if (panel.parentElement !== originalParent) {
+                    originalParent.appendChild(panel);
+                    panel.style.position = 'absolute';
+                    panel.style.left = '';
+                    panel.style.top = '';
+                }
+            });
+        }
+
+        function showInfoPanel(infoPanel, node) {
+            // Ocultar otros paneles
+            document.querySelectorAll('.info-panel').forEach(panel => panel.classList.remove('visible'));
+
+            // Ocultar nodos y marcadores
+            document.querySelectorAll('.node').forEach(n => n.style.visibility = 'hidden');
+            document.querySelectorAll('.lm-marker').forEach(m => m.style.visibility = 'hidden');
+
+            // Preparar panel: limitar altura y scroll vertical
+            infoPanel.style.maxHeight = '75vh';
+            infoPanel.style.overflowY = 'auto';
+
+            // Calcular ancho preferido y ancho máximo basado en viewport
+            const wrapper = document.querySelector('.model-wrapper');
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const nodeRect = node.getBoundingClientRect();
+
+            const preferred = Math.min(wrapperRect.width * 0.65, 760);
+            const maxAllowed = Math.max(wrapperRect.width - 24, 300);
+            const panelWidth = Math.min(preferred, maxAllowed);
+            infoPanel.style.width = panelWidth + 'px';
+            infoPanel.style.minWidth = '300px';
+
+            // Mover el panel fuera del contenedor (a body) para evitar que el borde radial lo corte
+            if (infoPanel.parentElement !== document.body) {
+                document.body.appendChild(infoPanel);
+            }
+            infoPanel.style.position = 'fixed';
+
+            // Mostrar el panel para medir su tamaño en el viewport
+            infoPanel.classList.add('visible');
+            const panelRect = infoPanel.getBoundingClientRect();
+
+            // Calcular posición preferida: encima del nodo, centrado en X
+            const nodeCenterX = nodeRect.left + nodeRect.width / 2;
+            const margin = 12; // margen desde los bordes del viewport
+
+            let left = Math.round(nodeCenterX - panelRect.width / 2);
+            if (left < margin) left = margin;
+            if (left + panelRect.width > window.innerWidth - margin) left = window.innerWidth - panelRect.width - margin;
+
+            // Preferir colocar arriba del nodo
+            let top = Math.round(nodeRect.top - panelRect.height - 12);
+            if (top < margin) {
+                // si no cabe arriba, colocar debajo
+                top = Math.round(nodeRect.bottom + 12);
+                // si tampoco cabe abajo, centrar verticalmente cercano al nodo
+                if (top + panelRect.height > window.innerHeight - margin) {
+                    top = Math.max(margin, Math.round((window.innerHeight - panelRect.height) / 2));
+                }
+            }
+
+            infoPanel.style.left = left + 'px';
+            infoPanel.style.top = top + 'px';
+            infoPanel.style.transform = 'none';
+
+            // Añadir botón de cerrar si no existe
+            if (!infoPanel.querySelector('.close-btn')) {
+                const btn = document.createElement('button');
+                btn.className = 'close-btn';
+                btn.textContent = '×';
+                btn.title = 'Cerrar';
+                btn.style = 'position:absolute;top:8px;right:10px;background:transparent;border:none;color:#fff;font-size:20px;cursor:pointer;z-index:1100;';
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeAllPanels();
+                });
+                infoPanel.appendChild(btn);
+            }
+        }
+
         // Manejar interacciones con los nodos
         const nodes = document.querySelectorAll('.node');
 
@@ -681,49 +817,18 @@
             const infoPanel = node.querySelector('.info-panel');
             const order = parseInt(node.dataset.order);
 
-            // Mostrar panel al hacer hover
-            node.addEventListener('mouseenter', () => {
-                // Ocultar todos los paneles primero
-                document.querySelectorAll('.info-panel').forEach(panel => {
-                    panel.classList.remove('visible');
-                });
-
-                // Posicionar y mostrar el panel actual
-                const rect = node.getBoundingClientRect();
-                const containerRect = document.querySelector('.model-container').getBoundingClientRect();
-
-                // Calcular posición óptima
-                let left = rect.left - containerRect.left;
-                let top = rect.top - containerRect.top;
-
-                // Ajustar posición basado en el espacio disponible
-                if (left > containerRect.width / 2) {
-                    infoPanel.style.right = '120%';
-                    infoPanel.style.left = 'auto';
-                } else {
-                    infoPanel.style.left = '120%';
-                    infoPanel.style.right = 'auto';
-                }
-
-                infoPanel.classList.add('visible');
+            // Mostrar panel solo al hacer clic
+            node.addEventListener('click', (e) => {
+                showInfoPanel(infoPanel, node);
+                // Evitar que el clic propague y cierre el panel inmediatamente
+                e.stopPropagation();
             });
 
-            // Ocultar panel al salir del nodo
-            node.addEventListener('mouseleave', (e) => {
-                const rect = infoPanel.getBoundingClientRect();
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
+            // Ya no se usa mouseleave para ocultar el panel
 
-                // Mantener visible si el mouse está sobre el panel
-                if (!(mouseX >= rect.left && mouseX <= rect.right &&
-                      mouseY >= rect.top && mouseY <= rect.bottom)) {
-                    infoPanel.classList.remove('visible');
-                }
-            });
-
-            // También ocultar al salir del panel
-            infoPanel.addEventListener('mouseleave', () => {
-                infoPanel.classList.remove('visible');
+            // Evitar que el clic dentro del panel cierre el panel
+            infoPanel.addEventListener('click', (ev) => {
+                ev.stopPropagation();
             });
 
             // Marcar como visitado al hacer clic
@@ -743,6 +848,16 @@
                     }
                 }
             });
+        });
+
+        // Cerrar paneles al hacer clic fuera (un solo listener global)
+        document.addEventListener('click', (ev) => {
+            closeAllPanels();
+        });
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Escape') closeAllPanels();
         });
 
         // Inicializar
