@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas las Referencias - Genus</title>
+    <style>
+        :root {
+            --background: #492800;
+            --text: #ffffff;
+            --accent: #ffa149;
+            --line: #ffffff4d;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .content-container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 80vw;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: center;
+        }
+        h1 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 161, 73, 0.3);
+        }
+        p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        h2 {
+            color: #ffd700;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 5px;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .species {
+            margin-bottom: 30px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            background: var(--accent);
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .back-link:hover {
+            background: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="https://i.imgur.com/4QrfVgR.mp4" type="video/mp4" />
+    </video>
+    <div class="background-overlay"></div>
+    <div class="content-container">
+        <h1>Todas las Referencias usadas en cada sección</h1>
+        <p>Bienvenido a la sección referencias donde encontraras toda la info consultada para profundizar.</p>
+
+    <div class="species">
+        <h2>Sahelantrophus.html</h2>
+        <ul>
+            <li><a href="https://www.si.edu/object/3d/sahelanthropus-tchadensis-cranium%3A9730a62f-a649-44fb-8494-aa7c9b6eb1f8" target="_blank">Modelo 3D Smithsonian</a></li>
+            <li><a href="https://talkorigins.org/faqs/homs/toumai.html" target="_blank">TalkOrigins</a></li>
+            <li><a href="https://www.charlesjvellaphd.com/Olli%20Human%20Evolution/Class%202a%20Early%20Hominins%202018%20by%20Charles%20J%20Vella%2C%20PhD.pdf" target="_blank">Clase Charles J. Vella</a></li>
+            <li><a href="https://milnepublishing.geneseo.edu/" target="_blank">Milne Publishing</a></li>
+            <li><a href="https://www.si.edu/" target="_blank">Smithsonian Institution</a></li>
+            <li><a href="https://www.mclibre.org/" target="_blank">McLibre</a></li>
+            <li><a href="https://www.columbia.edu/" target="_blank">Columbia University</a></li>
+            <li><a href="https://www.smithsonianmag.com/" target="_blank">Smithsonian Magazine</a></li>
+            <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
+            <li><a href="https://ojs.lib.uwo.ca/" target="_blank">ojs.lib.uwo.ca</a></li>
+            <li><a href="https://www.worldofpaleoanthropology.com/" target="_blank">World of Paleoanthropology</a></li>
+        </ul>
+    </div>
+
+    <div class="species">
+        <h2>Paranthropus.html</h2>
+        <ul>
+            <li><a href="https://humanorigins.si.edu/evidence/human-fossils/species/paranthropus-aethiopicus" target="_blank">Smithsonian Human Origins - Paranthropus aethiopicus</a></li>
+            <li><a href="https://humanorigins.si.edu/evidence/human-fossils/species/paranthropus-boisei" target="_blank">Smithsonian Human Origins - Paranthropus boisei</a></li>
+            <li><a href="https://www.nationalgeographic.es/ciencia/descubrimientos-paranthropus-boisei" target="_blank">National Geographic sobre "Zinj"</a></li>
+            <li><a href="https://humanorigins.si.edu/evidence/human-fossils/species/paranthropus-robustus" target="_blank">Smithsonian Human Origins - Paranthropus robustus</a></li>
+            <li><a href="https://www.britannica.com" target="_blank">Encyclopedia Britannica</a></li>
+            <li><a href="https://www.mclibre.org" target="_blank">mclibre.org</a></li>
+            <li><a href="https://australian.museum" target="_blank">Museo Australiano</a></li>
+        </ul>
+    </div>
+
+    <div class="species">
+        <h2>Kenyanthropus.html</h2>
+        <ul>
+            <li><a href="https://www.mchenry.edu" target="_blank">mchenry.edu</a></li>
+            <li><a href="https://openlibrary-repo.ecampusontario.ca" target="_blank">openlibrary-repo.ecampusontario.ca</a></li>
+            <li><a href="https://australian.museum" target="_blank">australian.museum</a></li>
+            <li><a href="https://www.smithsonianmag.com" target="_blank">Smithsonian Magazine</a></li>
+            <li><a href="https://en.wikipedia.org" target="_blank">Wikipedia</a></li>
+            <li><a href="https://www.rowan.edu/chss/" target="_blank">chss.rowan.edu</a></li>
+            <li><a href="https://www.columbia.edu" target="_blank">columbia.edu</a></li>
+        </ul>
+    </div>
+
+    <div class="species">
+        <h2>Australopithecus.html</h2>
+        <ul>
+            <li><a href="https://humanorigins.si.edu/evidence/human-fossils/species/australopithecus-afarensis" target="_blank">Human Origins - Australopithecus afarensis</a></li>
+            <li><a href="https://humanorigins.si.edu/evidence/human-fossils/species/australopithecus-africanus" target="_blank">Human Origins - Australopithecus africanus</a></li>
+            <li><a href="https://humanorigins.si.edu/evidence/human-fossils/species/australopithecus-sediba" target="_blank">Human Origins - Australopithecus sediba</a></li>
+            <li><a href="https://www.nationalgeographic.es/ciencia/2019/08/craneo-sin-precedentes-rostro-australopithecus-anamensis" target="_blank">National Geographic - Australopithecus anamensis</a></li>
+            <li><a href="https://www.nationalgeographic.es/ciencia/asi-lucia-antepasado-lucy-australopithecus_14656" target="_blank">National Geographic - Contexto general Australopithecus</a></li>
+            <li><a href="https://humanorigins.si.edu/education/teachers/hominid-skull-categories" target="_blank">Smithsonian – Human Origins: Australopithecus Overview</a></li>
+            <li><a href="https://australian.museum/learn/science/human-evolution/australopithecus/" target="_blank">Australian Museum – Characteristics of Australopithecus</a></li>
+            <li><a href="https://humanorigins.si.edu/evidence/human-characteristics/diet-and-teeth" target="_blank">Smithsonian – Teeth and Diet in Early Hominins</a></li>
+            <li><a href="https://espanol.libretexts.org/.../Locomoción_Australopitecina" target="_blank">LibreTexts – La locomoción australopitecina</a></li>
+            <li><a href="https://link.springer.com/article/10.1007/s10437-024-09580-x" target="_blank">Journal of Human Evolution – Upper limb morphology in early hominins</a></li>
+        </ul>
+    </div>
+
+    <div class="species">
+        <h2>Homo-habilis.html</h2>
+        <ul>
+            <li><a href="https://australian.museum" target="_blank">Museo Australiano</a></li>
+            <li><a href="https://www.nhm.ac.uk" target="_blank">Museo de Historia Natural</a></li>
+            <li><a href="https://www.britannica.com" target="_blank">Encyclopedia Britannica</a></li>
+            <li><a href="https://humanorigins.si.edu" target="_blank">Orígenes Humanos</a></li>
+        </ul>
+    </div>
+
+    <div class="species">
+        <h2>Ardipithecus.html</h2>
+        <ul>
+            <li><a href="https://doc.rero.ch" target="_blank">doc.rero.ch</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Ardipithecus" target="_blank">Wikipedia - Ardipithecus</a></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">PubMed</a></li>
+            <li><a href="https://www.mclibre.org/" target="_blank">McLibre</a></li>
+            <li><a href="https://opentextbooks.concordia.ca/" target="_blank">opentextbooks.concordia.ca</a></li>
+            <li><a href="https://educa2.madrid.org/" target="_blank">Educa2</a></li>
+        </ul>
+    </div>
+
+    <div class="species">
+        <h2>Homo-neanderthalensis.html</h2>
+        <ul>
+            <li><a href="https://es.libretexts.org/" target="_blank">Social Sci LibreTexts</a></li>
+            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank">PMC</a></li>
+            <li><a href="https://humanorigins.si.edu/" target="_blank">Human Origins</a></li>
+            <li><a href="https://link.springer.com/" target="_blank">SpringerLink</a></li>
+            <li><a href="https://australian.museum/" target="_blank">Museo Australiano</a></li>
+            <li><a href="https://en.citizendium.org/" target="_blank">Citizendium</a></li>
+            <li><a href="https://www.ujaen.es/" target="_blank">Crea UJAen</a></li>
+            <li><a href="https://www.sciencedirect.com/" target="_blank">ScienceDirect</a></li>
+            <li><a href="https://www.bibliotecavirtualsenior.es/" target="_blank">Biblioteca Virtual Senior</a></li>
+            <li><a href="https://www.si.edu/" target="_blank">Smithsonian Institution</a></li>
+        </ul>
+    </div>
+
+     <div class="species">
+        <h2>Especial agradecimiento a Meta.AI Y Gemini.AI para la generación de recursos multimediales(Imagenes y Videos)</h2>
+        </ul>
+    </div>
+    <p><a href="index.html">Volver al inicio</a></p>
+</body>
+</html>

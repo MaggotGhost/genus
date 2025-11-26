@@ -162,6 +162,11 @@
             color: rgba(255, 255, 255, 0.98);
         }
 
+        .info-status {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
         /* Ajustes responsivos para paneles más grandes */
         @media (max-width: 720px) {
             .info-panel {
@@ -499,6 +504,40 @@
             font-weight: bold;
             color: var(--accent);
         }
+
+        /* Link styles */
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* Credits styles */
+        .credits {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            opacity: 0.6;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .credits-arrow {
+            font-size: 1rem;
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -585,7 +624,13 @@
                         Carece de arcos supraorbitales prominentes y tiene frente elevada.<br><br>
                         Refleja un cerebro grande y alta capacidad cognitiva.<br><br>
                         👉 Características asociadas a funciones neurológicas avanzadas.<br><br>
-                        <strong>Referencias:</strong> Becoming Human, Un Historiador, Metode, ArtsLookUp, Britannica, LibreTexts.
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://becominghuman.org/" target="_blank" style="color: blue;">Becoming Human</a><br>
+                        • <a href="https://www.unhistoriador.com/" target="_blank" style="color: blue;">Un Historiador</a><br>
+                        • <a href="https://www.metode.org/" target="_blank" style="color: blue;">Metode</a><br>
+                        • <a href="https://www.arts-look-up.com/" target="_blank" style="color: blue;">ArtsLookUp</a><br>
+                        • <a href="https://www.britannica.com/" target="_blank" style="color: blue;">Encyclopedia Britannica</a><br>
+                        • <a href="https://es.libretexts.org/" target="_blank" style="color: blue;">LibreTexts Español</a>
                         </p>
                         <p class="info-status" id="status-1">Estado: No visitado</p>
                     </div>
@@ -599,7 +644,11 @@
                         La mandíbula inferior no sobresale, y presenta un mentón prominente distintivo.<br><br>
                         Los huesos faciales son ligeros y refinados, adaptados a un cráneo grande.<br><br>
                         👉 Permite más espacio para el cerebro y reduce robustez ósea.<br><br>
-                        <strong>Referencias:</strong> Un Historiador, Becoming Human, ArtsLookUp, Biblioteca Virtual Senior.
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://www.unhistoriador.com/" target="_blank" style="color: blue;">Un Historiador</a><br>
+                        • <a href="https://becominghuman.org/" target="_blank" style="color: blue;">Becoming Human</a><br>
+                        • <a href="https://www.arts-look-up.com/" target="_blank" style="color: blue;">ArtsLookUp</a><br>
+                        • <a href="https://www.bibliotecavirtualsenior.com/" target="_blank" style="color: blue;">Biblioteca Virtual Senior</a>
                         </p>
                         <p class="info-status" id="status-2">Estado: No visitado</p>
                     </div>
@@ -614,7 +663,13 @@
                         Incisivos y caninos reducidos, molares con cúspides planas para alimentos cocinados.<br><br>
                         Mandíbula con mentón prominente único en Homo sapiens.<br><br>
                         👉 Reducción dental ligada a herramientas y cocción.<br><br>
-                        <strong>Referencias:</strong> Becoming Human, Un Historiador, Metode, ArtsLookUp, Britannica, LibreTexts.
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://becominghuman.org/" target="_blank" style="color: blue;">Becoming Human</a><br>
+                        • <a href="https://www.unhistoriador.com/" target="_blank" style="color: blue;">Un Historiador</a><br>
+                        • <a href="https://www.metode.org/" target="_blank" style="color: blue;">Metode</a><br>
+                        • <a href="https://www.arts-look-up.com/" target="_blank" style="color: blue;">ArtsLookUp</a><br>
+                        • <a href="https://www.britannica.com/" target="_blank" style="color: blue;">Encyclopedia Britannica</a><br>
+                        • <a href="https://es.libretexts.org/" target="_blank" style="color: blue;">LibreTexts Español</a>
                         </p>
                         <p class="info-status" id="status-3">Estado: No visitado</p>
                     </div>
@@ -628,7 +683,12 @@
                         Pelvis ancha y caja torácica en forma de barril para adaptación al frío.<br><br>
                         Caminaban erguidos con bipedalismo habitual, similar a humanos modernos.<br><br>
                         Estudios de esqueletos como La Ferrassie 1 confirman marcha erguida.<br><br>
-                        <strong>Referencias:</strong> SpringerLink, Biblioteca Virtual Senior, Museo Australiano, Smithsonian, Human Origins.
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://link.springer.com/" target="_blank" style="color: blue;">SpringerLink</a><br>
+                        • <a href="https://www.bibliotecavirtualsenior.com/" target="_blank" style="color: blue;">Biblioteca Virtual Senior</a><br>
+                        • <a href="https://www.australianmuseum.net.au/" target="_blank" style="color: blue;">Museo Australiano</a><br>
+                        • <a href="https://www.si.edu/" target="_blank" style="color: blue;">Smithsonian</a><br>
+                        • <a href="https://humanorigins.si.edu/" target="_blank" style="color: blue;">Human Origins</a>
                         </p>
                         <p class="info-status" id="status-4">Estado: No visitado</p>
                     </div>
@@ -658,6 +718,8 @@
             </div>
         </div>
     </div>
+
+
 
     <script>
         // Función para mostrar notificaciones

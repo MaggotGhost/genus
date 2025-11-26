@@ -302,6 +302,12 @@
             background: rgba(0, 0, 0, 0.8);
             transform: scale(1.05);
         }
+        .logo-link.right {
+            top: 20px;
+            right: 20px;
+            left: auto;
+        }
+
         .logo-image {
             height: 30px;
             width: auto;
@@ -311,17 +317,56 @@
             font-weight: bold;
             color: var(--accent);
         }
+        .ai-info {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: var(--text);
+            font-size: 0.8rem;
+            z-index: 100;
+            opacity: 0.7;
+        }
+        .ai-info .toggle-btn {
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--text);
+            border: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+            transition: background 0.3s ease;
+        }
+        .ai-info .toggle-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .ai-info .info-content {
+            display: none;
+            margin-top: 0.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0.5rem;
+            border-radius: 5px;
+            backdrop-filter: blur(10px);
+            white-space: normal;
+            max-width: 300px;
+        }
     </style>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
     <video class="background-video" autoplay muted loop playsinline>
         <source src="https://i.imgur.com/4QrfVgR.mp4" type="video/mp4" />
     </video>
+    <iframe id="background-music" width="0" height="0" src="https://www.youtube.com/embed/Tw77P8eOwTg?autoplay=1&mute=1&loop=1&playlist=Tw77P8eOwTg&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position: absolute; left: -10000px; top: -10000px;"></iframe>
+    <iframe id="click-sound" width="0" height="0" src="https://www.youtube.com/embed/vkmbtL1B40w?autoplay=1&mute=1&enablejsapi=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position: absolute; left: -10000px; top: -10000px;"></iframe>
     <div class="background"></div>
     <div class="timeline"></div>
     <a href="index.html" class="logo-link" title="Ir a la página principal">
         <img src="https://i.imgur.com/zdK1P5m.png" alt="Genus Logo" class="logo-image" />
         <span class="logo-text">Genus</span>
+    </a>
+    <a href="#" class="logo-link right" title="Logo">
+        <img src="https://i.imgur.com/DAZVueT.png" alt="Logo" class="logo-image" />
     </a>
     <div class="timeline-container">
         <section class="section" id="sahelanthropus">
@@ -442,6 +487,14 @@
         <span class="arrow">→</span>
         Desliza para explorar
     </div>
+    <div class="ai-info">
+        <a href="all_references.html" class="toggle-btn">referencias</a>
+        <div class="info-content">
+            Imágenes, ilustraciones y videos generados por medio de IA<br>
+            Especiales agradecimientos a: Meta.AI,Geminis.AI y las pagínas de consulta
+            que aparecen en cada sección.
+        </div>
+    </div>
     <div class="visited-message">
         <div class="message-text">Felicidades haz completado el recorrido sobre tu evolución.<br>¿Deseas volver a iniciar?</div>
         <div class="buttons">
@@ -451,6 +504,25 @@
         <div class="message-text">Ahora te invitamos a visitar nuestra aplicación, para seguir con esta maravillosa exploración.</div>
     </div>
     <script>
+        let clickSoundPlayer;
+        function onYouTubeIframeAPIReady() {
+            clickSoundPlayer = new YT.Player('click-sound', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+        function onPlayerReady(event) {
+            // Player is ready
+        }
+        function playClickSound() {
+            if (clickSoundPlayer && clickSoundPlayer.playVideo) {
+                clickSoundPlayer.unMute();
+                clickSoundPlayer.seekTo(0);
+                clickSoundPlayer.playVideo();
+            }
+        }
+
         const sections = document.querySelectorAll('.section');
         const dots = document.querySelectorAll('.nav-dot');
         const visitedMessage = document.querySelector('.visited-message');
@@ -492,6 +564,7 @@
         });
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
+                playClickSound();
                 // Check if all previous sections are visited
                 let allPreviousVisited = true;
                 for (let i = 0; i < index; i++) {
@@ -532,6 +605,7 @@
             const link = section.querySelector('a');
             if (link) {
                 link.addEventListener('click', (e) => {
+                    playClickSound();
                     // Check if all previous sections are visited
                     let allPreviousVisited = true;
                     for (let i = 0; i < index; i++) {
@@ -558,6 +632,7 @@
 
         // Handle restart buttons
         document.getElementById('restart-yes').addEventListener('click', () => {
+            playClickSound();
             localStorage.removeItem('visitedPages');
             localStorage.removeItem('timelineProgress');
             visitedPages = [];
@@ -567,7 +642,19 @@
         });
 
         document.getElementById('restart-no').addEventListener('click', () => {
+            playClickSound();
             visitedMessage.classList.remove('show');
+        });
+
+        // Handle toggle button for ai-info
+        const toggleBtn = document.querySelector('.ai-info .toggle-btn');
+        const infoContent = document.querySelector('.ai-info .info-content');
+        toggleBtn.addEventListener('click', () => {
+            if (infoContent.style.display === 'none' || infoContent.style.display === '') {
+                infoContent.style.display = 'block';
+            } else {
+                infoContent.style.display = 'none';
+            }
         });
     </script>
 </body>
