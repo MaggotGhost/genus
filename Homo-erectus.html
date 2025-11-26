@@ -131,16 +131,18 @@
         /* Info panel */
         .info-panel {
             position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            border-radius: 10px;
-            max-width: 300px;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(14px);
+            padding: 1.75rem 2.5rem;
+            border-radius: 14px;
+            /* ancho adaptativo: hasta 1100px, o 90% del viewport */
+            width: min(90vw, 1100px);
+            min-width: 420px;
             visibility: hidden;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             border: 1px solid var(--accent);
-            z-index: 20;
+            z-index: 1001;
         }
 
         .info-panel.visible {
@@ -150,14 +152,25 @@
 
         .info-title {
             color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            margin-bottom: 0.6rem;
         }
 
         .info-text {
-            font-size: 0.95rem;
-            line-height: 1.4;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.98);
+        }
+
+        /* Ajustes responsivos para paneles más grandes */
+        @media (max-width: 720px) {
+            .info-panel {
+                width: 96vw;
+                padding: 1rem 0.9rem;
+                min-width: unset;
+            }
+            .info-title { font-size: 1.15rem; }
+            .info-text { font-size: 0.98rem; line-height: 1.45; }
         }
 
         /* Animaciones */
@@ -512,8 +525,6 @@
             <div class="journey-step"></div>
             <div class="journey-step"></div>
             <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
             <div class="journey-step active"></div>
             <div class="journey-step"></div>
             <div class="journey-step"></div>
@@ -525,8 +536,6 @@
             <div class="journey-label">Australopithecus</div>
             <div class="journey-label">Kenyanthropus</div>
             <div class="journey-label">Paranthropus</div>
-            <div class="journey-label">Australopithecus africanus</div>
-            <div class="journey-label">Paranthropus boisei</div>
             <div class="journey-label">Homo habilis</div>
             <div class="journey-label active">Homo erectus</div>
             <div class="journey-label">Homo heidelbergensis</div>
@@ -553,6 +562,8 @@
         Da clic a los nodos para comenzar el recorrido.
     </div>
 
+
+
     <div class="container">
         <header class="header">
             <h1 class="title">Homo erectus</h1>
@@ -566,42 +577,73 @@
                 </video>
 
                 <!-- Nodos interactivos -->
-                <div class="node hidden" style="top: 28%; left: 45%" data-info="craneo" data-order="1">
+                <div class="node hidden" style="top: 5%; left: 47%" data-info="craneo" data-order="1">
                     <div class="info-panel">
                         <h3 class="info-title">Cráneo</h3>
-                        <p class="info-text">Cráneo con capacidad craneal de 850-1100 cc, mayor que Homo habilis.</p>
+                        <p class="info-text">
+                        El cráneo de Homo erectus es bajo, alargado y con los huesos craneales bastante robustos y gruesos. La frente es muy inclinada (no hay frente vertical como en humanos modernos), y por encima de los ojos presenta un toro supraorbital prominente (arqueado óseo sobre las órbitas). En algunos cráneos se observa una ligera cresta a lo largo de la parte superior (una "quilla sagital" / "sagittal keel"), así como un "toro occipital" o reforzamiento óseo en la parte trasera, lo que le daba una forma más angulosa en la base. En general, la base craneal y la morfología del cráneo sugieren una capacidad craneal significativamente mayor que en homínidos anteriores, aunque menor que en humanos modernos. En conclusión: cráneo largo, bajo, huesos gruesos, frente retraída y arcos supraorbitales marcados — un diseño robusto, intermedio entre primates antiguos y humanos modernos.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://australian.museum/learn/science/human-evolution/homo-erectus/" target="_blank" style="color: blue;">Museo Australiano</a><br>
+                        • <a href="https://www.britannica.com/science/Homo-erectus" target="_blank" style="color: blue;">Encyclopedia Britannica</a><br>
+                        • <a href="https://sk.sagepub.com/reference/the-sage-encyclopedia-of-anthropology" target="_blank" style="color: blue;">Sage Publications</a><br>
+                        • <a href="https://eadhyayan.com" target="_blank" style="color: blue;">e-Adhyayan</a>
+                        </p>
                         <p class="info-status" id="status-1">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 38%; left: 48%" data-info="cara" data-order="2">
+                <div class="node hidden" style="top: 11%; left: 50%" data-info="cara" data-order="2">
                     <div class="info-panel">
                         <h3 class="info-title">Región Facial</h3>
-                        <p class="info-text">Cara más plana con arcos superciliares prominentes y prognatismo reducido.</p>
+                        <p class="info-text">
+                        La cara de Homo erectus era relativamente ancha y robusta comparada con la nuestra: el rostro "proyectaba" hacia adelante en su parte inferior (mandíbula, mandíbula inferior). La nariz presentaba una base más ancha, con los huesos nasales más delgados pero un puente nasal relativamente elevado — lo que ayudaría a adaptar la ventilación al clima y ambientes variados. Debido al cráneo bajo y al gran arco supraorbital, la frente era muy inclinada y la parte superior de la cara quedaba bastante por detrás de los arcos.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://eadhyayan.com" target="_blank" style="color: blue;">e-Adhyayan</a><br>
+                        • <a href="https://www.britannica.com/science/Homo-erectus" target="_blank" style="color: blue;">Encyclopedia Britannica</a>
+                        </p>
                         <p class="info-status" id="status-2">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 45%; left: 47%" data-info="dientes" data-order="3">
+                <div class="node hidden" style="top: 18%; left: 46%" data-info="dientes" data-order="3">
                     <div class="info-panel">
-                        <h3 class="info-title">Dentición</h3>
-                        <p class="info-text">Dientes más grandes que en humanos modernos, con molares robustos.</p>
+                        <h3 class="info-title">Dentición y Mandíbula</h3>
+                        <p class="info-text">
+                        La mandíbula de Homo erectus era profunda y robusta, pero sin mentón (es decir, no tenía la protuberancia que caracteriza al mentón humano moderno). Sus dientes posteriores (molares, premolares) eran más pequeños que los de homínidos anteriores, aunque aún más grandes que los nuestros en promedio. La arcada dental tenía una anchura considerable, y la mandíbula era robusta, lo que sugiere una masticación eficiente — posiblemente adaptada a una dieta variada (carnes, vegetales, alimentos duros).<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://australian.museum/learn/science/human-evolution/homo-erectus/" target="_blank" style="color: blue;">Museo Australiano</a><br>
+                        • <a href="https://www.britannica.com/science/Homo-erectus" target="_blank" style="color: blue;">Encyclopedia Britannica</a>
+                        </p>
                         <p class="info-status" id="status-3">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 52%; left: 45%" data-info="foramen" data-order="4">
+                <div class="node hidden" style="top: 43%; left: 43%" data-info="foramen" data-order="4">
                     <div class="info-panel">
-                        <h3 class="info-title">Foramen Magnum</h3>
-                        <p class="info-text">Posición anterior, locomoción bípeda completamente desarrollada.</p>
+                        <h3 class="info-title">Postura</h3>
+                        <p class="info-text">
+                        H. erectus presentaba proporciones corporales similares a las nuestras: piernas relativamente largas, brazos más cortos comparados con torso — lo que indica una postura erguida y una locomoción habitual bípeda moderna. Su estructura ósea robusta sugiere que estuvo adaptado a recorrer largas distancias — probablemente caminaba y podía correr, lo que habría sido útil para forrajear, migrar, cazar, etc. Los huesos de las piernas (fémur, tibia) se parecen bastante a los de humanos modernos, aunque con mayor grosor — lo que indica un cuerpo fuerte, resistente al desgaste físico.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://www.smithsonianmag.com/science-nature/human-origins-180977430/" target="_blank" style="color: blue;">Orígenes Humanos</a><br>
+                        • <a href="https://www.nationalgeographic.com/science/article/human-evolution" target="_blank" style="color: blue;">Recurso Abierto NM</a><br>
+                        • <a href="https://www.britannica.com/science/Homo-erectus" target="_blank" style="color: blue;">Encyclopedia Britannica</a><br>
+                        • <a href="https://eadhyayan.com" target="_blank" style="color: blue;">e-Adhyayan</a>
+                        </p>
                         <p class="info-status" id="status-4">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 58%; left: 47%" data-info="mandibula" data-order="5">
+                <div class="node hidden" style="top: 50%; left: 53%" data-info="manos" data-order="5">
                     <div class="info-panel">
-                        <h3 class="info-title">Mandíbula</h3>
-                        <p class="info-text">Mandíbula robusta con mentón ausente, dientes adaptados a dieta mixta.</p>
+                        <h3 class="info-title">Manos</h3>
+                        <p class="info-text">
+                        Aunque los fósiles completos de manos no siempre están preservados, en general H. erectus muestra un esqueleto postcraneal moderno: proporciones corporales semejantes a las nuestras, lo que sugiere que las manos ya habían perdido muchas adaptaciones arbóreas. Esa configuración sugiere que sus manos estaban "preparadas" para manipular objetos, fabricar y usar herramientas — lo que coincide con el hecho de que H. erectus es asociado con un uso más avanzado de herramientas y, en muchos casos, con control del fuego.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://www.smithsonianmag.com/science-nature/human-origins-180977430/" target="_blank" style="color: blue;">Orígenes Humanos</a><br>
+                        • <a href="https://www.nationalgeographic.com/science/article/human-evolution" target="_blank" style="color: blue;">Recurso Abierto NM</a><br>
+                        • <a href="https://www.britannica.com/science/Homo-erectus" target="_blank" style="color: blue;">Encyclopedia Britannica</a><br>
+                        • <a href="https://www.smithsonianmag.com/science-nature/human-origins-180977430/" target="_blank" style="color: blue;">Orígenes Humanos</a>
+                        </p>
                         <p class="info-status" id="status-5">Estado: No visitado</p>
                     </div>
                 </div>
@@ -623,7 +665,7 @@
         }
 
         // Reset tour progress on page load for fresh start
-        localStorage.removeItem('homo-erectus-tour');
+        localStorage.removeItem('sahelanthropus-tour');
         let visitedNodes = [];
         let currentStep = 1;
 
@@ -672,6 +714,96 @@
             }
         }
 
+        // Funciones auxiliares para manejo de paneles
+        function closeAllPanels() {
+            document.querySelectorAll('.info-panel.visible').forEach(panel => {
+                panel.classList.remove('visible');
+            });
+            document.querySelectorAll('.node').forEach(n => n.style.visibility = 'visible');
+            document.querySelectorAll('.lm-marker').forEach(m => m.style.visibility = 'visible');
+            // Restaurar posición al DOM original dentro del wrapper si fue movido
+            document.querySelectorAll('.info-panel').forEach(panel => {
+                const originalParent = panel.closest('.node') || document.querySelector('.model-wrapper');
+                if (panel.parentElement !== originalParent) {
+                    originalParent.appendChild(panel);
+                    panel.style.position = 'absolute';
+                    panel.style.left = '';
+                    panel.style.top = '';
+                }
+            });
+        }
+
+        function showInfoPanel(infoPanel, node) {
+            // Ocultar otros paneles
+            document.querySelectorAll('.info-panel').forEach(panel => panel.classList.remove('visible'));
+
+            // Ocultar nodos y marcadores
+            document.querySelectorAll('.node').forEach(n => n.style.visibility = 'hidden');
+            document.querySelectorAll('.lm-marker').forEach(m => m.style.visibility = 'hidden');
+
+            // Preparar panel: limitar altura y scroll vertical
+            infoPanel.style.maxHeight = '75vh';
+            infoPanel.style.overflowY = 'auto';
+
+            // Calcular ancho preferido y ancho máximo basado en viewport
+            const wrapper = document.querySelector('.model-wrapper');
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const nodeRect = node.getBoundingClientRect();
+
+            const preferred = Math.min(wrapperRect.width * 0.65, 760);
+            const maxAllowed = Math.max(wrapperRect.width - 24, 300);
+            const panelWidth = Math.min(preferred, maxAllowed);
+            infoPanel.style.width = panelWidth + 'px';
+            infoPanel.style.minWidth = '300px';
+
+            // Mover el panel fuera del contenedor (a body) para evitar que el borde radial lo corte
+            if (infoPanel.parentElement !== document.body) {
+                document.body.appendChild(infoPanel);
+            }
+            infoPanel.style.position = 'fixed';
+
+            // Mostrar el panel para medir su tamaño en el viewport
+            infoPanel.classList.add('visible');
+            const panelRect = infoPanel.getBoundingClientRect();
+
+            // Calcular posición preferida: encima del nodo, centrado en X
+            const nodeCenterX = nodeRect.left + nodeRect.width / 2;
+            const margin = 12; // margen desde los bordes del viewport
+
+            let left = Math.round(nodeCenterX - panelRect.width / 2);
+            if (left < margin) left = margin;
+            if (left + panelRect.width > window.innerWidth - margin) left = window.innerWidth - panelRect.width - margin;
+
+            // Preferir colocar arriba del nodo
+            let top = Math.round(nodeRect.top - panelRect.height - 12);
+            if (top < margin) {
+                // si no cabe arriba, colocar debajo
+                top = Math.round(nodeRect.bottom + 12);
+                // si tampoco cabe abajo, centrar verticalmente cercano al nodo
+                if (top + panelRect.height > window.innerHeight - margin) {
+                    top = Math.max(margin, Math.round((window.innerHeight - panelRect.height) / 2));
+                }
+            }
+
+            infoPanel.style.left = left + 'px';
+            infoPanel.style.top = top + 'px';
+            infoPanel.style.transform = 'none';
+
+            // Añadir botón de cerrar si no existe
+            if (!infoPanel.querySelector('.close-btn')) {
+                const btn = document.createElement('button');
+                btn.className = 'close-btn';
+                btn.textContent = '×';
+                btn.title = 'Cerrar';
+                btn.style = 'position:absolute;top:8px;right:10px;background:transparent;border:none;color:#fff;font-size:20px;cursor:pointer;z-index:1100;';
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeAllPanels();
+                });
+                infoPanel.appendChild(btn);
+            }
+        }
+
         // Manejar interacciones con los nodos
         const nodes = document.querySelectorAll('.node');
 
@@ -679,49 +811,18 @@
             const infoPanel = node.querySelector('.info-panel');
             const order = parseInt(node.dataset.order);
 
-            // Mostrar panel al hacer hover
-            node.addEventListener('mouseenter', () => {
-                // Ocultar todos los paneles primero
-                document.querySelectorAll('.info-panel').forEach(panel => {
-                    panel.classList.remove('visible');
-                });
-
-                // Posicionar y mostrar el panel actual
-                const rect = node.getBoundingClientRect();
-                const containerRect = document.querySelector('.model-container').getBoundingClientRect();
-
-                // Calcular posición óptima
-                let left = rect.left - containerRect.left;
-                let top = rect.top - containerRect.top;
-
-                // Ajustar posición basado en el espacio disponible
-                if (left > containerRect.width / 2) {
-                    infoPanel.style.right = '120%';
-                    infoPanel.style.left = 'auto';
-                } else {
-                    infoPanel.style.left = '120%';
-                    infoPanel.style.right = 'auto';
-                }
-
-                infoPanel.classList.add('visible');
+            // Mostrar panel solo al hacer clic
+            node.addEventListener('click', (e) => {
+                showInfoPanel(infoPanel, node);
+                // Evitar que el clic propague y cierre el panel inmediatamente
+                e.stopPropagation();
             });
 
-            // Ocultar panel al salir del nodo
-            node.addEventListener('mouseleave', (e) => {
-                const rect = infoPanel.getBoundingClientRect();
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
+            // Ya no se usa mouseleave para ocultar el panel
 
-                // Mantener visible si el mouse está sobre el panel
-                if (!(mouseX >= rect.left && mouseX <= rect.right &&
-                      mouseY >= rect.top && mouseY <= rect.bottom)) {
-                    infoPanel.classList.remove('visible');
-                }
-            });
-
-            // También ocultar al salir del panel
-            infoPanel.addEventListener('mouseleave', () => {
-                infoPanel.classList.remove('visible');
+            // Evitar que el clic dentro del panel cierre el panel
+            infoPanel.addEventListener('click', (ev) => {
+                ev.stopPropagation();
             });
 
             // Marcar como visitado al hacer clic
@@ -733,7 +834,7 @@
                         node.classList.add('visited');
                         document.getElementById(`status-${order}`).textContent = 'Estado: Visitado';
                         currentStep++;
-                        localStorage.setItem('homo-erectus-tour', JSON.stringify(visitedNodes));
+                        localStorage.setItem('sahelanthropus-tour', JSON.stringify(visitedNodes));
                         updateProgress();
                         showNotification(`¡Excelente! Has explorado el ${node.dataset.info}.`, 'success');
                     } else {
@@ -741,6 +842,16 @@
                     }
                 }
             });
+        });
+
+        // Cerrar paneles al hacer clic fuera (un solo listener global)
+        document.addEventListener('click', (ev) => {
+            closeAllPanels();
+        });
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Escape') closeAllPanels();
         });
 
         // Inicializar

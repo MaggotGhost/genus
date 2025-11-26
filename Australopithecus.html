@@ -535,9 +535,9 @@
     <div class="journey-timeline">
         <div class="journey-title">Tu Recorrido</div>
         <div class="journey-steps">
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
             <div class="journey-step active"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
             <div class="journey-step"></div>
             <div class="journey-step"></div>
             <div class="journey-step"></div>
@@ -547,9 +547,9 @@
             <div class="journey-step"></div>
         </div>
         <div class="journey-labels">
-            <div class="journey-label active">Sahelanthropus</div>
+            <div class="journey-label">Sahelanthropus</div>
             <div class="journey-label">Ardipithecus</div>
-            <div class="journey-label">Australopithecus</div>
+            <div class="journey-label active">Australopithecus</div>
             <div class="journey-label">Kenyanthropus</div>
             <div class="journey-label">Paranthropus</div>
             <div class="journey-label">Homo habilis</div>
@@ -589,6 +589,7 @@
         <!-- Botón para desplegar diálogo "¿Sabías que?" -->
         <button id="toggleInfoBtn" style="position: fixed; left: 50px; top: 150px; z-index: 1001; padding: 0.6rem 1rem; background-color: var(--accent); border: none; border-radius: 8px; color: #000; font-weight: bold; cursor: pointer;">
             ¿Sabías que?
+            
         </button>
 
         <!-- Cuadro de diálogo desplegable desde la izquierda -->
@@ -603,6 +604,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    Hay otras especies de Australopithecus, de los cuales puedes aprender más aquí:
                     <tr>
                         <td><strong>Australopithecus afarensis</strong></td>
                         <td><a href="https://humanorigins.si.edu/evidence/human-fossils/species/australopithecus-afarensis" target="_blank" style="color: var(--accent);">Human Origins</a></td>
@@ -639,13 +641,15 @@
                 </video>
 
                 <!-- Nodos interactivos -->
-<div class="node hidden" style="top: 23%; left: 52%" data-info="craneo" data-order="1">
+<div class="node hidden" style="top: 10%; left: 50%" data-info="craneo" data-order="1">
     <div class="info-panel">
         <h3 class="info-title">Cráneo</h3>
         <p class="info-text">
-        Tamaño cerebral reducido: 400–550 cm³, aproximadamente un tercio del cerebro humano moderno.<br>
-        Bóveda craneal baja, frente inclinada y arcos supraorbitales marcados (“cejas óseas”).<br>
-        El foramen magnum está adelantado, indicando postura erguida y bipedalismo.<br><br>
+        Tamaño cerebral reducido: 400–550 cm³, un tercio del cerebro humano moderno.<br>
+        Bóveda craneal baja con frente inclinada y arcos supraorbitales marcados.<br>
+        Foramen magnum adelantado, evidencia de postura erguida y bipedalismo.<br>
+        Rasgos primitivos similares a simios, pero con adaptaciones humanas incipientes.<br>
+        Importante en la evolución hacia géneros posteriores como Homo.<br><br>
         <strong>📎 Fuente:</strong><br>
         • <a href="https://humanorigins.si.edu/education/teachers/hominid-skull-categories" target="_blank">Smithsonian – Human Origins: Australopithecus Overview</a>
         </p>
@@ -653,14 +657,15 @@
     </div>
 </div>
 
-<div class="node hidden" style="top: 28%; left: 49%" data-info="cara" data-order="2">
+<div class="node hidden" style="top: 18%; left: 52%" data-info="cara" data-order="2">
     <div class="info-panel">
         <h3 class="info-title">Región Facial</h3>
         <p class="info-text">
-        Cara proyectada hacia adelante (prognatismo) y mandíbula prominente.<br>
-        Nariz pequeña y puente nasal bajo.<br>
-        Arcos zigomáticos robustos para músculos de masticación fuertes.<br>
-        Mandíbulas pesadas, indicando dieta con esfuerzo masticatorio.<br><br>
+        Cara proyectada hacia adelante con prognatismo y mandíbula prominente.<br>
+        Nariz pequeña con puente nasal bajo, típica de homínidos primitivos.<br>
+        Arcos zigomáticos robustos que soportan músculos de masticación fuertes.<br>
+        Mandíbulas pesadas, adaptadas para dietas con alto esfuerzo masticatorio.<br>
+        Rasgos faciales que reflejan una alimentación variada y dura.<br><br>
         <strong>📎 Fuente:</strong><br>
         • <a href="https://australian.museum/learn/science/human-evolution/australopithecus/" target="_blank">Australian Museum – Characteristics of Australopithecus</a>
         </p>
@@ -668,13 +673,15 @@
     </div>
 </div>
 
-<div class="node hidden" style="top: 33%; left: 53%" data-info="dientes" data-order="3">
+<div class="node hidden" style="top: 22%; left: 50%" data-info="dientes" data-order="3">
     <div class="info-panel">
         <h3 class="info-title">Dentición y Mandíbula</h3>
         <p class="info-text">
         Premolares y molares grandes, adaptados para triturar alimentos duros o fibrosos.<br>
         Caninos reducidos, sin el “afilado” típico de los simios.<br>
-        Mandíbulas anchas y potentes, diseñadas para dietas variadas: raíces, frutos, hojas duras.<br><br>
+        Mandíbulas anchas y potentes, diseñadas para dietas variadas: raíces, frutos, hojas duras.<br>
+        Dientes con esmalte grueso para resistir desgaste por alimentos abrasivos.<br>
+        Adaptaciones dentales que indican una dieta omnívora y procesadora de alimentos.<br><br>
         <strong>📎 Fuente:</strong><br>
         • <a href="https://humanorigins.si.edu/evidence/human-characteristics/diet-and-teeth" target="_blank">Smithsonian – Teeth and Diet in Early Hominins</a>
         </p>
@@ -682,14 +689,15 @@
     </div>
 </div>
 
-<div class="node hidden" style="top: 35%; left: 45%" data-info="foramen" data-order="4">
+<div class="node hidden" style="top: 50%; left: 46%" data-info="foramen" data-order="4">
     <div class="info-panel">
         <h3 class="info-title">Postura y Locomoción</h3>
         <p class="info-text">
-        Bípedos regulares: caminaban erguidos en el suelo.<br>
-        Pelvis corta y ancha, fémures inclinados hacia adentro y articulación de la rodilla diseñada para soportar peso.<br>
-        Pies con arco parcial y dedo gordo alineado con los demás.<br>
-        Marcha menos eficiente que humanos modernos.<br><br>
+        Bípedos regulares: caminaban erguidos en el suelo con postura erguida.<br>
+        Pelvis corta y ancha, adaptada para estabilidad en bipedalismo.<br>
+        Fémures inclinados hacia adentro y rodillas diseñadas para soportar peso.<br>
+        Pies con arco parcial y dedo gordo alineado, facilitando la marcha.<br>
+        Locomoción menos eficiente que en humanos modernos, pero efectiva.<br><br>
         <strong>📎 Fuente:</strong><br>
         • <a href="https://espanol.libretexts.org/.../Locomoción_Australopitecina" target="_blank">LibreTexts – La locomoción australopitecina</a>
         </p>
@@ -697,14 +705,15 @@
     </div>
 </div>
 
-<div class="node hidden" style="top: 54%; left: 55%" data-info="manos" data-order="5">
+<div class="node hidden" style="top: 55%; left: 57%" data-info="manos" data-order="5">
     <div class="info-panel">
         <h3 class="info-title">Manos y Extremidades Superiores</h3>
         <p class="info-text">
-        Brazos relativamente largos en proporción al cuerpo.<br>
-        Dedos curvados, señal de que aún trepaban árboles.<br>
-        Capaces de manipular objetos, sin evidencia sólida de herramientas elaboradas.<br>
-        Omóplatos y clavículas similares a simios para buena movilidad en árboles.<br><br>
+        Brazos largos en proporción al cuerpo, indicando capacidad para trepar.<br>
+        Dedos curvados y pulgares oponibles, adaptados para manipulación y vida arbórea.<br>
+        Capaces de manipular objetos, pero sin evidencia de herramientas avanzadas.<br>
+        Omóplatos y clavículas similares a simios, permitiendo movilidad arbórea.<br>
+        Extremidades superiores muestran mezcla de rasgos humanos y simios.<br><br>
         <strong>📎 Fuente:</strong><br>
         • <a href="https://link.springer.com/article/10.1007/s10437-024-09580-x" target="_blank">Journal of Human Evolution – Upper limb morphology in early hominins</a>
         </p>
@@ -922,7 +931,7 @@
         document.getElementById('toggleInfoBtn').addEventListener('click', () => {
             const panel = document.getElementById('infoPanel');
             if (panel.style.left === '0px') {
-                panel.style.left = '-350px';
+                panel.style.left = '-400px';
             } else {
                 panel.style.left = '0px';
             }

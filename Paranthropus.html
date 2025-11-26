@@ -62,9 +62,9 @@
 
         .model-video {
             width: auto;
-            height: 100%;
-            max-width: 100%;
-            object-fit: cover;
+            height: 120%; /* Aumentado de 100% a 120% */
+            max-width: 120%; /* Aumentado de 100% a 120% */
+            object-fit: contain;
             border-radius: 50% / 90% 90% 10% 10%;
             box-shadow: none;
         }
@@ -131,16 +131,18 @@
         /* Info panel */
         .info-panel {
             position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            border-radius: 10px;
-            max-width: 300px;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(14px);
+            padding: 1.75rem 2.5rem;
+            border-radius: 14px;
+            /* ancho adaptativo: hasta 1100px, o 90% del viewport */
+            width: min(90vw, 1100px);
+            min-width: 420px;
             visibility: hidden;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             border: 1px solid var(--accent);
-            z-index: 20;
+            z-index: 1001;
         }
 
         .info-panel.visible {
@@ -150,14 +152,25 @@
 
         .info-title {
             color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            margin-bottom: 0.6rem;
         }
 
         .info-text {
-            font-size: 0.95rem;
-            line-height: 1.4;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.98);
+        }
+
+        /* Ajustes responsivos para paneles más grandes */
+        @media (max-width: 720px) {
+            .info-panel {
+                width: 96vw;
+                padding: 1rem 0.9rem;
+                min-width: unset;
+            }
+            .info-title { font-size: 1.15rem; }
+            .info-text { font-size: 0.98rem; line-height: 1.45; }
         }
 
         /* Animaciones */
@@ -509,15 +522,13 @@
             <div class="journey-step"></div>
             <div class="journey-step"></div>
             <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
+            <div class="journey-step "></div>
             <div class="journey-step active"></div>
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
+            <div class="journey-step"></div>
         </div>
         <div class="journey-labels">
             <div class="journey-label">Sahelanthropus</div>
@@ -551,12 +562,52 @@
         Da clic a los nodos para comenzar el recorrido.
     </div>
 
+
+
     <div class="container">
         <header class="header">
             <h1 class="title">Paranthropus</h1>
             <p class="subtitle">Modelo Interactivo - 2.7-1.2 millones de años</p>
         </header>
 
+        <!-- Botón para desplegar diálogo "¿Sabías que?" -->
+        <button id="toggleInfoBtn" style="position: fixed; left: 50px; top: 150px; z-index: 1001; padding: 0.6rem 1rem; background-color: var(--accent); border: none; border-radius: 8px; color: #000; font-weight: bold; cursor: pointer;">
+            ¿Sabías que?
+            
+        </button>
+
+        <!-- Cuadro de diálogo desplegable desde la izquierda -->
+        <div id="infoPanel" style="position: fixed; top: 200px; left: -400px; width: 400px; height: 50vh; background: rgba(0,0,0,0.95); color: #fff; padding: 1rem; overflow-y: auto; box-shadow: 2px 0 10px rgba(0,0,0,0.7); transition: left 0.3s ease-in-out; z-index: 1000; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <h2 style="color: var(--accent); text-align: center; margin-bottom: 1rem;">¿Sabías que?</h2>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; border: 1px solid var(--accent);">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid var(--accent); padding: 0.5rem; text-align: left; background: rgba(255, 161, 73, 0.1);">Nombre</th>
+                        <th style="border: 1px solid var(--accent); padding: 0.5rem; text-align: left; background: rgba(255, 161, 73, 0.1);">Link</th>
+                        <th style="border: 1px solid var(--accent); padding: 0.5rem; text-align: left; background: rgba(255, 161, 73, 0.1);">Info que encontrará</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid var(--accent); padding: 0.5rem; vertical-align: top;"><strong>Paranthropus aethiopicus</strong> *(2.7–2.3 Ma)*</td>
+                        <td style="border: 1px solid var(--accent); padding: 0.5rem; vertical-align: top;"><a href="https://humanorigins.si.edu/evidence/human-fossils/species/paranthropus-aethiopicus" target="_blank" style="color: var(--accent);">Smithsonian Human Origins</a></td>
+                        <td style="border: 1px solid var(--accent); padding: 0.5rem; vertical-align: top;">• Cráneo primitivo pero ya robusto<br>• Cresta sagital marcada<br>• Mandíbula muy gruesa<br>• Molares grandes adaptados a dieta dura<br>• Rostro muy proyectado (prognatismo)<br>• Famoso "Black Skull" con sus rasgos extremos</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid var(--accent); padding: 0.5rem; vertical-align: top;"><strong>Paranthropus boisei</strong> *(2.3–1.2 Ma)*</td>
+                        <td style="border: 1px solid var(--accent); padding: 0.5rem; vertical-align: top;"><a href="https://humanorigins.si.edu/evidence/human-fossils/species/paranthropus-boisei" target="_blank" style="color: var(--accent);">Smithsonian Human Origins</a><br><a href="https://www.nationalgeographic.es/ciencia/descubrimientos-paranthropus-boisei" target="_blank" style="color: var(--accent);">National Geographic sobre "Zinj"</a></td>
+                        <td style="border: 1px solid var(--accent); padding: 0.5rem; vertical-align: top;">• El más robusto de todos los Paranthropus<br>• Molares enormes ("megadontia extrema")<br>• Cresta sagital muy grande<br>• Mandíbula gigante, en forma de U<br>• Cuerpo pequeño pero musculoso<br>• Dieta basada en vegetación dura (raíces, tallos)</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid var(--accent); padding: 0.5rem; vertical-align: top;"><strong>Paranthropus robustus</strong> *(2–1.2 Ma)*</td>
+                        <td style="border: 1px solid var(--accent); padding: 0.5rem; vertical-align: top;"><a href="https://humanorigins.si.edu/evidence/human-fossils/species/paranthropus-robustus" target="_blank" style="color: var(--accent);">Smithsonian Human Origins</a></td>
+                        <td style="border: 1px solid var(--accent); padding: 0.5rem; vertical-align: top;">• Similar a *P. boisei* pero menos extremo<br>• Cráneo robusto con cresta moderada<br>• Molares muy grandes pero no gigantes<br>• Mandíbula espesa y fuerte<br>• Adaptación clara a procesar semillas y plantas duras<br>• Mezcla de rasgos robustos y algunos menos exagerados</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        
         <div class="model-container">
             <div class="model-wrapper">
                 <video src="https://i.imgur.com/4fyr6mq.mp4" class="model-video" autoplay muted playsinline>
@@ -564,42 +615,76 @@
                 </video>
 
                 <!-- Nodos interactivos -->
-                <div class="node hidden" style="top: 28%; left: 45%" data-info="craneo" data-order="1">
+                <div class="node hidden" style="top: -2%; left: 50%" data-info="cráneo" data-order="1">
                     <div class="info-panel">
                         <h3 class="info-title">Cráneo</h3>
-                        <p class="info-text">Cráneo con capacidad craneal de 1200-1600 cc, globoide y alto.</p>
+                        <p class="info-text">
+                        Paranthropus tiene un cráneo muy robusto: la bóveda es baja (cabeza "achatada"), con frente retirada, arcos supraorbitales marcados ("cejas óseas") y — en los machos de varias especies — una cresta sagital prominente en la parte superior del cráneo. Esa cresta servía para anclar músculos de masticación muy poderosos.<br><br>
+                        Las mejillas son anchas: los arcos cigomáticos están muy desarrollados, lo que proporciona espacio para músculos temporales grandes.<br><br>
+                        A pesar de la robustez del cráneo, su capacidad craneal no es mucho mayor que la de algunos australopitecos: en la especie Paranthropus boisei se estima aproximadamente unos ~510–515 cm³.<br><br>
+                        Esta combinación — cráneo robusto, cresta para músculos grandes, caja cerebral modesta — sugiere una adaptación especializada más para masticar alimentos duros que para un gran desarrollo cerebral.<br><br>
+                        En general: el cráneo de Paranthropus está adaptado a un aparato masticatorio muy potente.<br><br>
+                        <strong>Referencias:</strong><br>
+                        <a href="https://www.britannica.com" target="_blank">Encyclopedia Britannica</a><br>
+                        <a href="https://www.mclibre.org" target="_blank">mclibre.org</a><br>
+                        <a href="https://australian.museum" target="_blank">Museo Australiano</a><br>
+                        <a href="https://www.britannica.com" target="_blank">Encyclopedia Britannica</a><br>
+                        <a href="https://www.mclibre.org" target="_blank">mclibre.org</a>
+                        </p>
                         <p class="info-status" id="status-1">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 38%; left: 48%" data-info="cara" data-order="2">
+                <div class="node hidden" style="top: 5%; left: 46%" data-info="rostro" data-order="2">
                     <div class="info-panel">
-                        <h3 class="info-title">Región Facial</h3>
-                        <p class="info-text">Cara plana con arcos superciliares reducidos y mentón prominente.</p>
+                        <h3 class="info-title">👃 Región facial y mandíbula</h3>
+                        <p class="info-text">
+                        La cara de Paranthropus suele ser plana o relativamente ortognática en comparación con simios — es decir, en conjunto la cara no es muy prognática hacia adelante; los pómulos sobresalen hacia los lados para dar amplitud.<br><br>
+                        La mandíbula es muy masiva y profunda, con ramos mandibulares (las ramas verticales hacia arriba) altos — una estructura robusta pensada para soportar fuertes fuerzas de mordida.<br><br>
+                        La articulación temporomandibular (la unión donde la mandíbula se articula con el cráneo) es grande, lo que refuerza la idea de un sistema de masticación muy potente y resistente al desgaste.<br><br>
+                        <strong>Referencias:</strong><br>
+                        <a href="https://www.mclibre.org" target="_blank">mclibre.org</a><br>
+                        <a href="https://www.britannica.com" target="_blank">Encyclopedia Britannica</a>
+                        </p>
                         <p class="info-status" id="status-2">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 45%; left: 47%" data-info="dientes" data-order="3">
+                <div class="node hidden" style="top: 10%; left: 50%" data-info="dentición" data-order="3">
                     <div class="info-panel">
-                        <h3 class="info-title">Dentición</h3>
-                        <p class="info-text">Dientes pequeños con molares reducidos, dieta omnívora variada.</p>
+                        <h3 class="info-title">🦷 Dentadura</h3>
+                        <p class="info-text">
+                        Los dientes de Paranthropus son grandes y robustos, con molares y premolares muy desarrollados para triturar alimentos duros como semillas, nueces o raíces. Los caninos son pequeños y no sobresalen mucho, lo que indica una reducción del dimorfismo sexual y una dieta menos agresiva que en simios. El esmalte dental es grueso, lo que ayuda a resistir el desgaste causado por alimentos abrasivos. Esta dentición especializada sugiere una adaptación a un nicho ecológico específico, enfocado en vegetales duros y posiblemente en la masticación de alimentos que requieren mucha fuerza.<br><br>
+                        <strong>Referencias:</strong><br>
+                        <a href="https://www.mclibre.org" target="_blank">mclibre.org</a><br>
+                        <a href="https://www.britannica.com" target="_blank">Encyclopedia Britannica</a>
+                        </p>
                         <p class="info-status" id="status-3">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 52%; left: 45%" data-info="foramen" data-order="4">
+                <div class="node hidden" style="top: 43%; left: 45%" data-info="foramen" data-order="4">
                     <div class="info-panel">
-                        <h3 class="info-title">Foramen Magnum</h3>
-                        <p class="info-text">Posición anterior, locomoción bípeda completamente eficiente.</p>
+                        <h3 class="info-title">🚶‍♂️ Postura y locomoción</h3>
+                        <p class="info-text">
+                        Paranthropus exhibía una postura bípeda, con el foramen magnum posicionado hacia adelante, indicando una adaptación a la locomoción erecta. Sin embargo, también mostraba características que sugieren una capacidad arbórea limitada, como crestas occipitales pronunciadas para anclar músculos nucales fuertes. Los fragmentos de huesos largos sugieren una locomoción mixta, combinando bipedalismo terrestre con habilidades para trepar, típica de homínidos del Plioceno temprano.<br><br>
+                        <strong>Referencias:</strong><br>
+                        <a href="https://www.mclibre.org" target="_blank">mclibre.org</a><br>
+                        <a href="https://www.britannica.com" target="_blank">Encyclopedia Britannica</a>
+                        </p>
                         <p class="info-status" id="status-4">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 58%; left: 47%" data-info="mandibula" data-order="5">
+                <div class="node hidden" style="top: 54%; left: 57%" data-info="manos" data-order="5">
                     <div class="info-panel">
-                        <h3 class="info-title">Mandíbula</h3>
-                        <p class="info-text">Mandíbula gracil con mentón pronunciado, dientes pequeños.</p>
+                        <h3 class="info-title">🖐️ Manos / extremidades superiores</h3>
+                        <p class="info-text">
+                        Paranthropus poseía extremidades superiores robustas, con húmero y cúbito masivos, indicando una musculatura poderosa. Los hombros anchos y las clavículas orientadas sugieren una capacidad para movimientos de fuerza, posiblemente relacionados con la masticación intensa y actividades arbóreas limitadas. Aunque no se conservan manos completas, se infiere una prensión básica, adecuada para manipular alimentos duros y herramientas simples, pero sin la precisión de especies posteriores como Homo habilis.<br><br>
+                        <strong>Referencias:</strong><br>
+                        <a href="https://www.mclibre.org" target="_blank">mclibre.org</a><br>
+                        <a href="https://www.britannica.com" target="_blank">Encyclopedia Britannica</a>
+                        </p>
                         <p class="info-status" id="status-5">Estado: No visitado</p>
                     </div>
                 </div>
@@ -621,7 +706,7 @@
         }
 
         // Reset tour progress on page load for fresh start
-        localStorage.removeItem('homo-sapiens-tour');
+        localStorage.removeItem('sahelanthropus-tour');
         let visitedNodes = [];
         let currentStep = 1;
 
@@ -662,11 +747,101 @@
 
             const instruction = document.querySelector('.tour-instruction');
             if (currentStep <= 5) {
-                const nodeNames = ['cráneo', 'región facial', 'dentición', 'foramen magnum', 'mandíbula'];
+                const nodeNames = ['cráneo', 'rostro', 'dentición', 'foramen magnum', 'manos'];
                 instruction.textContent = `Siguiente: Explora el ${nodeNames[currentStep - 1]}`;
             } else {
                 instruction.textContent = '¡Tour completado! Has explorado todos los nodos.';
                 showNotification('¡Felicitaciones! Has completado el tour del hominido.', 'success');
+            }
+        }
+
+        // Funciones auxiliares para manejo de paneles
+        function closeAllPanels() {
+            document.querySelectorAll('.info-panel.visible').forEach(panel => {
+                panel.classList.remove('visible');
+            });
+            document.querySelectorAll('.node').forEach(n => n.style.visibility = 'visible');
+            document.querySelectorAll('.lm-marker').forEach(m => m.style.visibility = 'visible');
+            // Restaurar posición al DOM original dentro del wrapper si fue movido
+            document.querySelectorAll('.info-panel').forEach(panel => {
+                const originalParent = panel.closest('.node') || document.querySelector('.model-wrapper');
+                if (panel.parentElement !== originalParent) {
+                    originalParent.appendChild(panel);
+                    panel.style.position = 'absolute';
+                    panel.style.left = '';
+                    panel.style.top = '';
+                }
+            });
+        }
+
+        function showInfoPanel(infoPanel, node) {
+            // Ocultar otros paneles
+            document.querySelectorAll('.info-panel').forEach(panel => panel.classList.remove('visible'));
+
+            // Ocultar nodos y marcadores
+            document.querySelectorAll('.node').forEach(n => n.style.visibility = 'hidden');
+            document.querySelectorAll('.lm-marker').forEach(m => m.style.visibility = 'hidden');
+
+            // Preparar panel: limitar altura y scroll vertical
+            infoPanel.style.maxHeight = '75vh';
+            infoPanel.style.overflowY = 'auto';
+
+            // Calcular ancho preferido y ancho máximo basado en viewport
+            const wrapper = document.querySelector('.model-wrapper');
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const nodeRect = node.getBoundingClientRect();
+
+            const preferred = Math.min(wrapperRect.width * 0.65, 760);
+            const maxAllowed = Math.max(wrapperRect.width - 24, 300);
+            const panelWidth = Math.min(preferred, maxAllowed);
+            infoPanel.style.width = panelWidth + 'px';
+            infoPanel.style.minWidth = '300px';
+
+            // Mover el panel fuera del contenedor (a body) para evitar que el borde radial lo corte
+            if (infoPanel.parentElement !== document.body) {
+                document.body.appendChild(infoPanel);
+            }
+            infoPanel.style.position = 'fixed';
+
+            // Mostrar el panel para medir su tamaño en el viewport
+            infoPanel.classList.add('visible');
+            const panelRect = infoPanel.getBoundingClientRect();
+
+            // Calcular posición preferida: encima del nodo, centrado en X
+            const nodeCenterX = nodeRect.left + nodeRect.width / 2;
+            const margin = 12; // margen desde los bordes del viewport
+
+            let left = Math.round(nodeCenterX - panelRect.width / 2);
+            if (left < margin) left = margin;
+            if (left + panelRect.width > window.innerWidth - margin) left = window.innerWidth - panelRect.width - margin;
+
+            // Preferir colocar arriba del nodo
+            let top = Math.round(nodeRect.top - panelRect.height - 12);
+            if (top < margin) {
+                // si no cabe arriba, colocar debajo
+                top = Math.round(nodeRect.bottom + 12);
+                // si tampoco cabe abajo, centrar verticalmente cercano al nodo
+                if (top + panelRect.height > window.innerHeight - margin) {
+                    top = Math.max(margin, Math.round((window.innerHeight - panelRect.height) / 2));
+                }
+            }
+
+            infoPanel.style.left = left + 'px';
+            infoPanel.style.top = top + 'px';
+            infoPanel.style.transform = 'none';
+
+            // Añadir botón de cerrar si no existe
+            if (!infoPanel.querySelector('.close-btn')) {
+                const btn = document.createElement('button');
+                btn.className = 'close-btn';
+                btn.textContent = '×';
+                btn.title = 'Cerrar';
+                btn.style = 'position:absolute;top:8px;right:10px;background:transparent;border:none;color:#fff;font-size:20px;cursor:pointer;z-index:1100;';
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeAllPanels();
+                });
+                infoPanel.appendChild(btn);
             }
         }
 
@@ -677,49 +852,18 @@
             const infoPanel = node.querySelector('.info-panel');
             const order = parseInt(node.dataset.order);
 
-            // Mostrar panel al hacer hover
-            node.addEventListener('mouseenter', () => {
-                // Ocultar todos los paneles primero
-                document.querySelectorAll('.info-panel').forEach(panel => {
-                    panel.classList.remove('visible');
-                });
-
-                // Posicionar y mostrar el panel actual
-                const rect = node.getBoundingClientRect();
-                const containerRect = document.querySelector('.model-container').getBoundingClientRect();
-
-                // Calcular posición óptima
-                let left = rect.left - containerRect.left;
-                let top = rect.top - containerRect.top;
-
-                // Ajustar posición basado en el espacio disponible
-                if (left > containerRect.width / 2) {
-                    infoPanel.style.right = '120%';
-                    infoPanel.style.left = 'auto';
-                } else {
-                    infoPanel.style.left = '120%';
-                    infoPanel.style.right = 'auto';
-                }
-
-                infoPanel.classList.add('visible');
+            // Mostrar panel solo al hacer clic
+            node.addEventListener('click', (e) => {
+                showInfoPanel(infoPanel, node);
+                // Evitar que el clic propague y cierre el panel inmediatamente
+                e.stopPropagation();
             });
 
-            // Ocultar panel al salir del nodo
-            node.addEventListener('mouseleave', (e) => {
-                const rect = infoPanel.getBoundingClientRect();
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
+            // Ya no se usa mouseleave para ocultar el panel
 
-                // Mantener visible si el mouse está sobre el panel
-                if (!(mouseX >= rect.left && mouseX <= rect.right &&
-                      mouseY >= rect.top && mouseY <= rect.bottom)) {
-                    infoPanel.classList.remove('visible');
-                }
-            });
-
-            // También ocultar al salir del panel
-            infoPanel.addEventListener('mouseleave', () => {
-                infoPanel.classList.remove('visible');
+            // Evitar que el clic dentro del panel cierre el panel
+            infoPanel.addEventListener('click', (ev) => {
+                ev.stopPropagation();
             });
 
             // Marcar como visitado al hacer clic
@@ -731,7 +875,7 @@
                         node.classList.add('visited');
                         document.getElementById(`status-${order}`).textContent = 'Estado: Visitado';
                         currentStep++;
-                        localStorage.setItem('homo-sapiens-tour', JSON.stringify(visitedNodes));
+                        localStorage.setItem('sahelanthropus-tour', JSON.stringify(visitedNodes));
                         updateProgress();
                         showNotification(`¡Excelente! Has explorado el ${node.dataset.info}.`, 'success');
                     } else {
@@ -741,11 +885,36 @@
             });
         });
 
+        // Cerrar paneles al hacer clic fuera (un solo listener global)
+        document.addEventListener('click', (ev) => {
+            closeAllPanels();
+        });
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Escape') closeAllPanels();
+        });
+
+        // Función para toggle del panel "¿Sabías que?"
+        function toggleInfoPanel() {
+            const infoPanel = document.getElementById('infoPanel');
+            const currentLeft = infoPanel.style.left;
+            if (currentLeft === '20px' || currentLeft === '') {
+                infoPanel.style.left = '-400px';
+            } else {
+                infoPanel.style.left = '20px';
+            }
+        }
+
         // Inicializar
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.querySelector('.model-video');
             const nodes = document.querySelectorAll('.node');
             const backgroundVideo = document.querySelector('.background-video');
+            const toggleInfoBtn = document.getElementById('toggleInfoBtn');
+
+            // Event listener para el botón "¿Sabías que?"
+            toggleInfoBtn.addEventListener('click', toggleInfoPanel);
 
             // Mostrar nodos cuando el video se pause
             video.addEventListener('pause', () => {

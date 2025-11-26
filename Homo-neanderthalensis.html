@@ -131,16 +131,18 @@
         /* Info panel */
         .info-panel {
             position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            border-radius: 10px;
-            max-width: 300px;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(14px);
+            padding: 1.75rem 2.5rem;
+            border-radius: 14px;
+            /* ancho adaptativo: hasta 1100px, o 90% del viewport */
+            width: min(90vw, 1100px);
+            min-width: 420px;
             visibility: hidden;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             border: 1px solid var(--accent);
-            z-index: 20;
+            z-index: 1001;
         }
 
         .info-panel.visible {
@@ -150,14 +152,25 @@
 
         .info-title {
             color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            margin-bottom: 0.6rem;
         }
 
         .info-text {
-            font-size: 0.95rem;
-            line-height: 1.4;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.98);
+        }
+
+        /* Ajustes responsivos para paneles más grandes */
+        @media (max-width: 720px) {
+            .info-panel {
+                width: 96vw;
+                padding: 1rem 0.9rem;
+                min-width: unset;
+            }
+            .info-title { font-size: 1.15rem; }
+            .info-text { font-size: 0.98rem; line-height: 1.45; }
         }
 
         /* Animaciones */
@@ -514,8 +527,6 @@
             <div class="journey-step"></div>
             <div class="journey-step"></div>
             <div class="journey-step"></div>
-            <div class="journey-step"></div>
-            <div class="journey-step"></div>
             <div class="journey-step active"></div>
             <div class="journey-step"></div>
         </div>
@@ -525,8 +536,6 @@
             <div class="journey-label">Australopithecus</div>
             <div class="journey-label">Kenyanthropus</div>
             <div class="journey-label">Paranthropus</div>
-            <div class="journey-label">Australopithecus africanus</div>
-            <div class="journey-label">Paranthropus boisei</div>
             <div class="journey-label">Homo habilis</div>
             <div class="journey-label">Homo erectus</div>
             <div class="journey-label">Homo heidelbergensis</div>
@@ -553,6 +562,8 @@
         Da clic a los nodos para comenzar el recorrido.
     </div>
 
+
+
     <div class="container">
         <header class="header">
             <h1 class="title">Homo neanderthalensis</h1>
@@ -566,42 +577,91 @@
                 </video>
 
                 <!-- Nodos interactivos -->
-                <div class="node hidden" style="top: 28%; left: 45%" data-info="craneo" data-order="1">
+                <div class="node hidden" style="top: 6%; left: 48%" data-info="craneo" data-order="1">
                     <div class="info-panel">
                         <h3 class="info-title">Cráneo</h3>
-                        <p class="info-text">Cráneo con capacidad craneal de 1200-1700 cc, similar a Homo sapiens modernos.</p>
+                        <p class="info-text">
+                        El cráneo neandertal es alargado, bajo y ancho, con occipital bun, frente baja e inclinada, arcos supraorbitales prominentes y continuos.<br><br>
+                        La capacidad craneal promedio es de ~1,500 cm³, con base poco flexionada y senos paranasales amplios (nasales, maxilares y frontales).<br><br>
+                        Estas características influyen en la forma general del cráneo y reflejan adaptaciones particulares.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://es.libretexts.org/" target="_blank" style="color: blue;">Social Sci LibreTexts</a><br>
+                        • <a href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank" style="color: blue;">PMC</a><br>
+                        • <a href="https://humanorigins.si.edu/" target="_blank" style="color: blue;">Human Origins</a><br>
+                        • <a href="https://link.springer.com/" target="_blank" style="color: blue;">SpringerLink</a><br>
+                        • <a href="https://australian.museum/" target="_blank" style="color: blue;">Museo Australiano</a><br>
+                        • <a href="https://en.citizendium.org/" target="_blank" style="color: blue;">Citizendium</a>
+                        </p>
                         <p class="info-status" id="status-1">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 38%; left: 48%" data-info="cara" data-order="2">
+                <div class="node hidden" style="top: 15%; left: 45%" data-info="cara" data-order="2">
                     <div class="info-panel">
-                        <h3 class="info-title">Región Facial</h3>
-                        <p class="info-text">Cara prognática con arcos superciliares prominentes y nariz grande.</p>
+                        <h3 class="info-title">Región facial / Cara</h3>
+                        <p class="info-text">
+                        El rostro destaca por un prognatismo medio-facial, con la región media de la cara proyectada hacia adelante.<br><br>
+                        Las mejillas (huesos cigomáticos) están orientadas hacia atrás con respecto a la cavidad nasal.<br><br>
+                        La apertura nasal es grande y ancha, con una nariz prominente, lo que ayudaba a calentar y humedecer aire frío.<br><br>
+                        Internamente tenían senos nasales y maxilares amplios, contribuyendo a su anatomía facial robusta.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://es.libretexts.org/" target="_blank" style="color: blue;">Social Sci LibreTexts</a><br>
+                        • <a href="https://www.ujaen.es/" target="_blank" style="color: blue;">Crea UJAen</a><br>
+                        • <a href="https://humanorigins.si.edu/" target="_blank" style="color: blue;">Human Origins</a><br>
+                        • <a href="https://www.sciencedirect.com/" target="_blank" style="color: blue;">ScienceDirect</a>
+                        </p>
                         <p class="info-status" id="status-2">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 45%; left: 47%" data-info="dientes" data-order="3">
+                <div class="node hidden" style="top: 20%; left: 48%" data-info="dientes" data-order="3">
                     <div class="info-panel">
-                        <h3 class="info-title">Dentición</h3>
-                        <p class="info-text">Dientes grandes con taurodontismo característico, dieta carnívora.</p>
+                        <h3 class="info-title">Dentición y Mandíbula</h3>
+                        <p class="info-text">
+                        Las mandíbulas son grandes y robustas, careciendo del mentón prominente característico de humanos modernos.<br><br>
+                        Hay un espacio detrás del último molar inferior llamado espacio retromolar, típico en muchos Neandertales.<br><br>
+                        Sus dientes (molares, premolares e incisivos) tendían a ser grandes.<br><br>
+                        En restos como La Ferrassie 1 se observa desgaste intenso en incisivos, usados posiblemente como herramienta.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://australian.museum/" target="_blank" style="color: blue;">Museo Australiano</a><br>
+                        • <a href="https://www.bibliotecavirtualsenior.es/" target="_blank" style="color: blue;">Biblioteca Virtual Senior</a><br>
+                        • <a href="https://www.si.edu/" target="_blank" style="color: blue;">Smithsonian Institution</a>
+                        </p>
                         <p class="info-status" id="status-3">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 52%; left: 45%" data-info="foramen" data-order="4">
+                <div class="node hidden" style="top: 43%; left: 43%" data-info="foramen" data-order="4">
                     <div class="info-panel">
-                        <h3 class="info-title">Foramen Magnum</h3>
-                        <p class="info-text">Posición anterior, locomoción bípeda eficiente en terrenos fríos.</p>
+                        <h3 class="info-title">Postura</h3>
+                        <p class="info-text">
+                        El esqueleto postcraneal muestra un cuerpo robusto, con extremidades cortas en relación al tronco y gruesas.<br><br>
+                        La pelvis es ancha y la caja torácica tiene forma de barril, lo que indica adaptación al frío para conservar calor.<br><br>
+                        A pesar de la robustez, caminaban erguidos de modo similar a humanos modernos, con bipedalismo habitual.<br><br>
+                        Estudios de esqueletos como La Ferrassie 1 confirman piernas y pies compatibles con marcha erguida.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://link.springer.com/" target="_blank" style="color: blue;">SpringerLink</a><br>
+                        • <a href="https://www.bibliotecavirtualsenior.es/" target="_blank" style="color: blue;">Biblioteca Virtual Senior</a><br>
+                        • <a href="https://australian.museum/" target="_blank" style="color: blue;">Museo Australiano</a><br>
+                        • <a href="https://www.si.edu/" target="_blank" style="color: blue;">Smithsonian Institution</a><br>
+                        • <a href="https://humanorigins.si.edu/" target="_blank" style="color: blue;">Human Origins</a>
+                        </p>
                         <p class="info-status" id="status-4">Estado: No visitado</p>
                     </div>
                 </div>
 
-                <div class="node hidden" style="top: 58%; left: 47%" data-info="mandibula" data-order="5">
+                <div class="node hidden" style="top: 58%; left: 55%" data-info="manos" data-order="5">
                     <div class="info-panel">
-                        <h3 class="info-title">Mandíbula</h3>
-                        <p class="info-text">Mandíbula robusta sin mentón, dientes grandes para procesar carne.</p>
+                        <h3 class="info-title">Manos</h3>
+                        <p class="info-text">
+                        Los huesos de las extremidades superiores (brazos, antebrazos) son gruesos, con fuertes marcas de inserción muscular.<br><br>
+                        Esto sugiere gran fuerza en brazos y manos, facilitando manipulación y uso de herramientas.<br><br>
+                        Las extremidades distales (antebrazos, piernas) son proporcionalmente cortas, coincidiendo con adaptaciones para conservar calor.<br><br>
+                        Esta anatomía robusta facilitaba actividades físicas intensas como caza, construcción de refugios y procesar animales.<br><br>
+                        <strong>Referencias:</strong><br>
+                        • <a href="https://australian.museum/" target="_blank" style="color: blue;">Museo Australiano</a><br>
+                        • <a href="https://link.springer.com/" target="_blank" style="color: blue;">SpringerLink</a>
+                        </p>
                         <p class="info-status" id="status-5">Estado: No visitado</p>
                     </div>
                 </div>
@@ -623,7 +683,7 @@
         }
 
         // Reset tour progress on page load for fresh start
-        localStorage.removeItem('homo-neanderthalensis-tour');
+        localStorage.removeItem('sahelanthropus-tour');
         let visitedNodes = [];
         let currentStep = 1;
 
@@ -672,6 +732,96 @@
             }
         }
 
+        // Funciones auxiliares para manejo de paneles
+        function closeAllPanels() {
+            document.querySelectorAll('.info-panel.visible').forEach(panel => {
+                panel.classList.remove('visible');
+            });
+            document.querySelectorAll('.node').forEach(n => n.style.visibility = 'visible');
+            document.querySelectorAll('.lm-marker').forEach(m => m.style.visibility = 'visible');
+            // Restaurar posición al DOM original dentro del wrapper si fue movido
+            document.querySelectorAll('.info-panel').forEach(panel => {
+                const originalParent = panel.closest('.node') || document.querySelector('.model-wrapper');
+                if (panel.parentElement !== originalParent) {
+                    originalParent.appendChild(panel);
+                    panel.style.position = 'absolute';
+                    panel.style.left = '';
+                    panel.style.top = '';
+                }
+            });
+        }
+
+        function showInfoPanel(infoPanel, node) {
+            // Ocultar otros paneles
+            document.querySelectorAll('.info-panel').forEach(panel => panel.classList.remove('visible'));
+
+            // Ocultar nodos y marcadores
+            document.querySelectorAll('.node').forEach(n => n.style.visibility = 'hidden');
+            document.querySelectorAll('.lm-marker').forEach(m => m.style.visibility = 'hidden');
+
+            // Preparar panel: limitar altura y scroll vertical
+            infoPanel.style.maxHeight = '75vh';
+            infoPanel.style.overflowY = 'auto';
+
+            // Calcular ancho preferido y ancho máximo basado en viewport
+            const wrapper = document.querySelector('.model-wrapper');
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const nodeRect = node.getBoundingClientRect();
+
+            const preferred = Math.min(wrapperRect.width * 0.65, 760);
+            const maxAllowed = Math.max(wrapperRect.width - 24, 300);
+            const panelWidth = Math.min(preferred, maxAllowed);
+            infoPanel.style.width = panelWidth + 'px';
+            infoPanel.style.minWidth = '300px';
+
+            // Mover el panel fuera del contenedor (a body) para evitar que el borde radial lo corte
+            if (infoPanel.parentElement !== document.body) {
+                document.body.appendChild(infoPanel);
+            }
+            infoPanel.style.position = 'fixed';
+
+            // Mostrar el panel para medir su tamaño en el viewport
+            infoPanel.classList.add('visible');
+            const panelRect = infoPanel.getBoundingClientRect();
+
+            // Calcular posición preferida: encima del nodo, centrado en X
+            const nodeCenterX = nodeRect.left + nodeRect.width / 2;
+            const margin = 12; // margen desde los bordes del viewport
+
+            let left = Math.round(nodeCenterX - panelRect.width / 2);
+            if (left < margin) left = margin;
+            if (left + panelRect.width > window.innerWidth - margin) left = window.innerWidth - panelRect.width - margin;
+
+            // Preferir colocar arriba del nodo
+            let top = Math.round(nodeRect.top - panelRect.height - 12);
+            if (top < margin) {
+                // si no cabe arriba, colocar debajo
+                top = Math.round(nodeRect.bottom + 12);
+                // si tampoco cabe abajo, centrar verticalmente cercano al nodo
+                if (top + panelRect.height > window.innerHeight - margin) {
+                    top = Math.max(margin, Math.round((window.innerHeight - panelRect.height) / 2));
+                }
+            }
+
+            infoPanel.style.left = left + 'px';
+            infoPanel.style.top = top + 'px';
+            infoPanel.style.transform = 'none';
+
+            // Añadir botón de cerrar si no existe
+            if (!infoPanel.querySelector('.close-btn')) {
+                const btn = document.createElement('button');
+                btn.className = 'close-btn';
+                btn.textContent = '×';
+                btn.title = 'Cerrar';
+                btn.style = 'position:absolute;top:8px;right:10px;background:transparent;border:none;color:#fff;font-size:20px;cursor:pointer;z-index:1100;';
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeAllPanels();
+                });
+                infoPanel.appendChild(btn);
+            }
+        }
+
         // Manejar interacciones con los nodos
         const nodes = document.querySelectorAll('.node');
 
@@ -679,49 +829,18 @@
             const infoPanel = node.querySelector('.info-panel');
             const order = parseInt(node.dataset.order);
 
-            // Mostrar panel al hacer hover
-            node.addEventListener('mouseenter', () => {
-                // Ocultar todos los paneles primero
-                document.querySelectorAll('.info-panel').forEach(panel => {
-                    panel.classList.remove('visible');
-                });
-
-                // Posicionar y mostrar el panel actual
-                const rect = node.getBoundingClientRect();
-                const containerRect = document.querySelector('.model-container').getBoundingClientRect();
-
-                // Calcular posición óptima
-                let left = rect.left - containerRect.left;
-                let top = rect.top - containerRect.top;
-
-                // Ajustar posición basado en el espacio disponible
-                if (left > containerRect.width / 2) {
-                    infoPanel.style.right = '120%';
-                    infoPanel.style.left = 'auto';
-                } else {
-                    infoPanel.style.left = '120%';
-                    infoPanel.style.right = 'auto';
-                }
-
-                infoPanel.classList.add('visible');
+            // Mostrar panel solo al hacer clic
+            node.addEventListener('click', (e) => {
+                showInfoPanel(infoPanel, node);
+                // Evitar que el clic propague y cierre el panel inmediatamente
+                e.stopPropagation();
             });
 
-            // Ocultar panel al salir del nodo
-            node.addEventListener('mouseleave', (e) => {
-                const rect = infoPanel.getBoundingClientRect();
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
+            // Ya no se usa mouseleave para ocultar el panel
 
-                // Mantener visible si el mouse está sobre el panel
-                if (!(mouseX >= rect.left && mouseX <= rect.right &&
-                      mouseY >= rect.top && mouseY <= rect.bottom)) {
-                    infoPanel.classList.remove('visible');
-                }
-            });
-
-            // También ocultar al salir del panel
-            infoPanel.addEventListener('mouseleave', () => {
-                infoPanel.classList.remove('visible');
+            // Evitar que el clic dentro del panel cierre el panel
+            infoPanel.addEventListener('click', (ev) => {
+                ev.stopPropagation();
             });
 
             // Marcar como visitado al hacer clic
@@ -733,7 +852,7 @@
                         node.classList.add('visited');
                         document.getElementById(`status-${order}`).textContent = 'Estado: Visitado';
                         currentStep++;
-                        localStorage.setItem('homo-neanderthalensis-tour', JSON.stringify(visitedNodes));
+                        localStorage.setItem('sahelanthropus-tour', JSON.stringify(visitedNodes));
                         updateProgress();
                         showNotification(`¡Excelente! Has explorado el ${node.dataset.info}.`, 'success');
                     } else {
@@ -741,6 +860,16 @@
                     }
                 }
             });
+        });
+
+        // Cerrar paneles al hacer clic fuera (un solo listener global)
+        document.addEventListener('click', (ev) => {
+            closeAllPanels();
+        });
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Escape') closeAllPanels();
         });
 
         // Inicializar
