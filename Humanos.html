@@ -358,7 +358,7 @@
         <source src="https://i.imgur.com/4QrfVgR.mp4" type="video/mp4" />
     </video>
     <iframe id="background-music" width="0" height="0" src="https://www.youtube.com/embed/Tw77P8eOwTg?autoplay=1&mute=1&loop=1&playlist=Tw77P8eOwTg&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1&enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position: absolute; left: -10000px; top: -10000px;"></iframe>
-    <iframe id="click-sound" width="0" height="0" src="https://www.youtube.com/embed/vkmbtL1B40w?autoplay=1&mute=1&enablejsapi=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position: absolute; left: -10000px; top: -10000px;"></iframe>
+    <iframe id="click-sound" width="0" height="0" src="https://www.youtube.com/embed/vkmbtL1B40w?enablejsapi=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&disablekb=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position: absolute; left: -10000px; top: -10000px;"></iframe>
     <div class="background"></div>
     <div class="timeline"></div>
     <a href="index.html" class="logo-link" title="Ir a la página principal">
@@ -655,6 +655,12 @@
             } else {
                 infoContent.style.display = 'none';
             }
+        });
+
+        // Add click sound to logo links
+        const logoLinks = document.querySelectorAll('.logo-link');
+        logoLinks.forEach(link => {
+            link.addEventListener('click', playClickSound);
         });
     </script>
 </body>
